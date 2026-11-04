@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using What_The_Fork.Classes;
-
-namespace What_The_Fork.Navigation
+using WhatTheForkMVC.Classes;
+namespace WhatTheForkMVC.Navigation
 {
     public class UiHeader
     {
