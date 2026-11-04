@@ -1,0 +1,4 @@
+﻿"ReservationID","RestaurantID","UserID","ContactName","Phone","Email","ReservationDate","PartySize","SpecialRequests","Status","DateCreated"
+"1","37","1","Amelia Edgar","2679168756","tus45674@temple.edu","11/20/2026 4:35:00 PM","6","","Pending","11/1/2026 11:35:44 AM"
+"2","41","1","Amelia Edgar","2679168756","tus45674@temple.edu","11/2/2026 6:00:00 PM","2","Make me the freebird special","Confirmed","11/1/2026 5:34:54 PM"
+"3","41","1","Amelia Edgar","2679168756","tus45674@temple.edu","11/25/2026 11:39:00 AM","8","","Confirmed","11/1/2026 6:39:38 PM"

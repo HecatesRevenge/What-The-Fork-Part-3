@@ -1,0 +1,5 @@
+﻿"UserID","Username","Password","UserType","FirstName","LastName","Email","Phone","DateCreated"
+"1","Amelia1998","$2a$11$qj5TWw6x5MpkIuVnBAzu5uBJaBB.1Xw20hWrG20l3.XzNOrNq39Ka","Reviewer","Amelia","Edgar","tus45674@temple.edu","2679168756","11/1/2026 11:33:59 AM"
+"2","Amelia2026","$2a$11$fCL/OvzjG.rvpZntWF4dHO0nklbvu08gTJSobuJrLBN5rIq8BSJFu","Representative","Amelia","Edgar","tus45674@temple.edu","","11/1/2026 5:26:59 PM"
+"3","chris","$2a$11$7YzcUf47sv/Sb5VU.4JSx.jd2dgQExs3P0thEqi/zpBAcMSe7x1gi","Reviewer","Chris","Tolis","chris.tolis@temple.edu","","11/1/2026 9:52:16 PM"
+"4","Chris1","$2a$11$AJbfyR4NYkKOdH5bjeU0S..70mb4AeAmOL7ITL1ui5nd7KpySReAO","Representative","Chris","Tolis","chris.tolis@temple.edu","","11/1/2026 9:53:24 PM"

@@ -1,7 +1,100 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\managerestauranthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\managerestauranthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\registervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\registervalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\reservationemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\reservationemail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\reservationvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\reservationvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\restaurant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\restaurantformhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\restaurantformhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\restaurantvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\restaurantvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\reviewvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\reviewvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\searchcriteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\searchcriteria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\useraccounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\useraccounts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\reviewdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\reviewdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\restaurantdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\restaurantdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\reservationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\reservationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\dashboardcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\dashboardcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F20FC15D-6C27-4B18-8452-11E0275B7871}|What The Fork\\What The Fork.csproj|C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\what the fork\\styling\\navigation\\uiheader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F20FC15D-6C27-4B18-8452-11E0275B7871}|What The Fork\\What The Fork.csproj|solutionrelative:what the fork\\styling\\navigation\\uiheader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F20FC15D-6C27-4B18-8452-11E0275B7871}|What The Fork\\What The Fork.csproj|C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\what the fork\\styling\\navigation\\uifooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F20FC15D-6C27-4B18-8452-11E0275B7871}|What The Fork\\What The Fork.csproj|solutionrelative:what the fork\\styling\\navigation\\uifooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\whattheforkmvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\whattheforkmvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +102,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +111,283 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReservationEmail.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReservationEmail.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\ReservationEmail.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReservationEmail.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\ReservationEmail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:42.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Reservation.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Reservation.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Reservation.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:36.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterValidator.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RegisterValidator.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\RegisterValidator.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RegisterValidator.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\RegisterValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:32.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PasswordHasher.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\PasswordHasher.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\PasswordHasher.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\PasswordHasher.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\PasswordHasher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:28.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageRestaurantHelper.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ManageRestaurantHelper.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\ManageRestaurantHelper.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ManageRestaurantHelper.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\ManageRestaurantHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:24.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Email.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Email.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Email.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:20.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReservationValidator.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReservationValidator.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\ReservationValidator.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReservationValidator.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\ReservationValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:14:54.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Restaurant.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Restaurant.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Restaurant.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Restaurant.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Restaurant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:00.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RestaurantFormHelper.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RestaurantFormHelper.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\RestaurantFormHelper.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RestaurantFormHelper.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\RestaurantFormHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:04.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RestaurantValidator.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RestaurantValidator.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\RestaurantValidator.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\RestaurantValidator.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\RestaurantValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:07.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Review.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Review.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Review.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Review.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Review.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:11.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ReviewValidator.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReviewValidator.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\ReviewValidator.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\ReviewValidator.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\ReviewValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:15.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SearchCriteria.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\SearchCriteria.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\SearchCriteria.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\SearchCriteria.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\SearchCriteria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:19.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserAccounts.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\UserAccounts.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\UserAccounts.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\UserAccounts.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\UserAccounts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:15:22.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ReviewDB.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReviewDB.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\ReviewDB.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReviewDB.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\ReviewDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:16:55.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RestaurantDB.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\RestaurantDB.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\RestaurantDB.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\RestaurantDB.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\RestaurantDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:16:48.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReservationDB.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReservationDB.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\ReservationDB.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReservationDB.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\ReservationDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:16:25.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\Connection.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:16:19.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountDB.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\AccountDB.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\AccountDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:02.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DashboardCard.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\DashboardCard.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\DashboardCard.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\DashboardCard.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\DashboardCard.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:13:16.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UiHeader.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\What The Fork\\Styling\\Navigation\\UiHeader.cs",
+              "RelativeDocumentMoniker": "What The Fork\\Styling\\Navigation\\UiHeader.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\What The Fork\\Styling\\Navigation\\UiHeader.cs",
+              "RelativeToolTip": "What The Fork\\Styling\\Navigation\\UiHeader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:20:15.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UiFooter.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\What The Fork\\Styling\\Navigation\\UiFooter.cs",
+              "RelativeDocumentMoniker": "What The Fork\\Styling\\Navigation\\UiFooter.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\What The Fork\\Styling\\Navigation\\UiFooter.cs",
+              "RelativeToolTip": "What The Fork\\Styling\\Navigation\\UiFooter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-04T21:20:01.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "WhatTheForkMVC.csproj",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\WhatTheForkMVC.csproj",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\WhatTheForkMVC.csproj",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\WhatTheForkMVC.csproj",
+              "RelativeToolTip": "WhatTheForkMVC\\WhatTheForkMVC.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-04T21:09:11.842Z"
             }
           ]
         },
