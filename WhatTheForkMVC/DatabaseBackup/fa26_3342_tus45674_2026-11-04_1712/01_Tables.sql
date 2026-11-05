@@ -1,7 +1,7 @@
-﻿-- Backup of [fa26_3342_tus45674] on cis-mssql1.temple.edu, 2026-11-04 17:12
+-- Backup of [fa26_3342_tus45674] on cis-mssql1.temple.edu, 2026-11-04 17:12
 -- Run this first.
 
-CREATE TABLE [dbo].[Cuisines] (
+CREATE TABLE [dbo].[TP_Cuisines] (
     [CuisineID] INT IDENTITY(1,1) NOT NULL,
     [CuisineName] VARCHAR(50) NOT NULL,
     CONSTRAINT [PK__Cuisines__B1C3E7ABA83F20DB] PRIMARY KEY CLUSTERED ([CuisineID])
@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[Reservation] (
 );
 GO
 
-CREATE TABLE [dbo].[RestaurantHours] (
+CREATE TABLE [dbo].[TP_RestaurantHours] (
     [RestaurantHoursID] INT IDENTITY(1,1) NOT NULL,
     [RestaurantID] INT NOT NULL,
     [DayOfWeek] TINYINT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE [dbo].[RestaurantHours] (
 );
 GO
 
-CREATE TABLE [dbo].[RestaurantPhoto] (
+CREATE TABLE [dbo].[TP_RestaurantPhoto] (
     [PhotoID] INT IDENTITY(1,1) NOT NULL,
     [RestaurantID] INT NOT NULL,
     [PhotoType] VARCHAR(20) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[RestaurantPhoto] (
 );
 GO
 
-CREATE TABLE [dbo].[Restaurants] (
+CREATE TABLE [dbo].[TP_Restaurants] (
     [RestaurantID] INT IDENTITY(1,1) NOT NULL,
     [RestaurantName] VARCHAR(50) NOT NULL,
     [CuisineID] INT NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE [dbo].[Restaurants] (
 );
 GO
 
-CREATE TABLE [dbo].[RestaurantSocialLink] (
+CREATE TABLE [dbo].[TP_RestaurantSocialLink] (
     [SocialLinkID] INT IDENTITY(1,1) NOT NULL,
     [RestaurantID] INT NOT NULL,
     [PlatformID] INT NOT NULL,
@@ -161,21 +161,21 @@ GO
 
 -- Foreign keys
 
-ALTER TABLE [dbo].[Reservation] ADD CONSTRAINT [FK__Reservati__Resta__0D7A0286] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[Restaurants] ([RestaurantID]);
+ALTER TABLE [dbo].[Reservation] ADD CONSTRAINT [FK__Reservati__Resta__0D7A0286] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[TP_Restaurants] ([RestaurantID]);
 GO
 ALTER TABLE [dbo].[Reservation] ADD CONSTRAINT [FK__Reservati__UserI__0E6E26BF] FOREIGN KEY ([UserID]) REFERENCES [dbo].[UserAccount] ([UserID]);
 GO
-ALTER TABLE [dbo].[RestaurantPhoto] ADD CONSTRAINT [FK__Restauran__Resta__09A971A2] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[Restaurants] ([RestaurantID]);
+ALTER TABLE [dbo].[TP_RestaurantPhoto] ADD CONSTRAINT [FK__Restauran__Resta__09A971A2] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[TP_Restaurants] ([RestaurantID]);
 GO
-ALTER TABLE [dbo].[Restaurants] ADD CONSTRAINT [FK_Restaurant_Cuisine] FOREIGN KEY ([CuisineID]) REFERENCES [dbo].[Cuisines] ([CuisineID]);
+ALTER TABLE [dbo].[TP_Restaurants] ADD CONSTRAINT [FK_Restaurant_Cuisine] FOREIGN KEY ([CuisineID]) REFERENCES [dbo].[TP_Cuisines] ([CuisineID]);
 GO
-ALTER TABLE [dbo].[RestaurantHours] ADD CONSTRAINT [FK_RestaurantHours_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[Restaurants] ([RestaurantID]) ON DELETE CASCADE;
+ALTER TABLE [dbo].[TP_RestaurantHours] ADD CONSTRAINT [FK_RestaurantHours_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[TP_Restaurants] ([RestaurantID]) ON DELETE CASCADE;
 GO
-ALTER TABLE [dbo].[RestaurantSocialLink] ADD CONSTRAINT [FK_RestaurantSocialLink_Platform] FOREIGN KEY ([PlatformID]) REFERENCES [dbo].[SocialMediaPlatform] ([PlatformID]);
+ALTER TABLE [dbo].[TP_RestaurantSocialLink] ADD CONSTRAINT [FK_RestaurantSocialLink_Platform] FOREIGN KEY ([PlatformID]) REFERENCES [dbo].[SocialMediaPlatform] ([PlatformID]);
 GO
-ALTER TABLE [dbo].[RestaurantSocialLink] ADD CONSTRAINT [FK_RestaurantSocialLink_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[Restaurants] ([RestaurantID]) ON DELETE CASCADE;
+ALTER TABLE [dbo].[TP_RestaurantSocialLink] ADD CONSTRAINT [FK_RestaurantSocialLink_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[TP_Restaurants] ([RestaurantID]) ON DELETE CASCADE;
 GO
-ALTER TABLE [dbo].[Review] ADD CONSTRAINT [FK_Review_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[Restaurants] ([RestaurantID]) ON DELETE CASCADE;
+ALTER TABLE [dbo].[Review] ADD CONSTRAINT [FK_Review_Restaurant] FOREIGN KEY ([RestaurantID]) REFERENCES [dbo].[TP_Restaurants] ([RestaurantID]) ON DELETE CASCADE;
 GO
 ALTER TABLE [dbo].[Review] ADD CONSTRAINT [FK_Review_Reviewer] FOREIGN KEY ([ReviewerID]) REFERENCES [dbo].[Reviewer] ([ReviewerID]);
 GO
