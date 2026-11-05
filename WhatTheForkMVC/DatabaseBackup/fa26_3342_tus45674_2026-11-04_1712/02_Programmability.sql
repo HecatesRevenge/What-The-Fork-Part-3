@@ -1,4 +1,4 @@
-﻿-- Backup of [fa26_3342_tus45674] on cis-mssql1.temple.edu, 2026-11-04 17:12
+-- Backup of [fa26_3342_tus45674] on cis-mssql1.temple.edu, 2026-11-04 17:12
 -- Run this after 01_Tables.sql.
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetCuisines]
@@ -6,24 +6,24 @@
 -- What the Fork - Project 2
 -- Script 04: Stored procedures for the Search page
 
-CREATE PROCEDURE GetCuisines
+CREATE PROCEDURE TP_GetCuisines
 AS
     SELECT CuisineID, CuisineName
-    FROM Cuisines
+    FROM TP_Cuisines
     ORDER BY CuisineName
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetLocations]
-CREATE PROCEDURE GetLocations
+CREATE PROCEDURE TP_GetLocations
 AS
     SELECT City, State, COUNT(*) AS RestaurantCount
-    FROM Restaurants
+    FROM TP_Restaurants
     GROUP BY City, State
     ORDER BY City, State
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[SearchRestaurants]
-CREATE PROCEDURE SearchRestaurants
+CREATE PROCEDURE TP_SearchRestaurants
     @CuisineList varchar(500),
     @City varchar(60),
     @State char(2)
@@ -36,7 +36,7 @@ AS
            AVG(rv.ServiceRating * 1.0) AS ServiceRating,
            AVG(rv.AtmosphereRating * 1.0) AS AtmosphereRating,
            AVG(rv.PriceRating * 1.0) AS PriceRating
-    FROM Restaurants r
+    FROM TP_Restaurants r
     INNER JOIN Cuisines c ON r.CuisineID = c.CuisineID
     LEFT JOIN Review rv ON r.RestaurantID = rv.RestaurantID
     WHERE ',' + @CuisineList + ',' LIKE '%,' + CAST(r.CuisineID AS varchar) + ',%'
@@ -47,7 +47,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetRestaurantLogo]
-CREATE PROCEDURE GetRestaurantLogo
+CREATE PROCEDURE TP_GetRestaurantLogo
     @RestaurantID int
 AS
     SELECT ImageData, ImageType
@@ -56,7 +56,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetRestaurantByID]
-CREATE PROCEDURE GetRestaurantByID
+CREATE PROCEDURE TP_GetRestaurantByID
     @RestaurantID int
 AS
     SELECT r.RestaurantID, r.RestaurantName, r.CuisineID, c.CuisineName, r.Description,
@@ -68,7 +68,7 @@ AS
            AVG(rv.ServiceRating * 1.0) AS ServiceRating,
            AVG(rv.AtmosphereRating * 1.0) AS AtmosphereRating,
            AVG(rv.PriceRating * 1.0) AS PriceRating
-    FROM Restaurants r
+    FROM TP_Restaurants r
     INNER JOIN Cuisines c ON r.CuisineID = c.CuisineID
     LEFT JOIN Review rv ON r.RestaurantID = rv.RestaurantID
     WHERE r.RestaurantID = @RestaurantID
@@ -78,11 +78,11 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetRestaurantHours]
-CREATE PROCEDURE GetRestaurantHours
+CREATE PROCEDURE TP_GetRestaurantHours
     @RestaurantID int
 AS
     SELECT DayOfWeek, OpenTime, CloseTime, IsClosed
-    FROM RestaurantHours
+    FROM TP_RestaurantHours
     WHERE RestaurantID = @RestaurantID
     ORDER BY DayOfWeek
 GO
@@ -92,11 +92,11 @@ GO
 -- GetRestaurantSocialLinks
 -- Retrieves the restaurant's social media links
 -- =============================================
-CREATE PROCEDURE GetRestaurantSocialLinks
+CREATE PROCEDURE TP_GetRestaurantSocialLinks
     @RestaurantID int
 AS
     SELECT s.PlatformID, p.PlatformName, s.LinkUrl
-    FROM RestaurantSocialLink s
+    FROM TP_RestaurantSocialLink s
     INNER JOIN SocialMediaPlatform p ON s.PlatformID = p.PlatformID
     WHERE s.RestaurantID = @RestaurantID
     ORDER BY p.PlatformName
@@ -107,11 +107,11 @@ GO
 -- GetRestaurantPhotos
 -- Retrieves all the uploaded photos for a restaurant
 -- =============================================
-CREATE PROCEDURE GetRestaurantPhotos
+CREATE PROCEDURE TP_GetRestaurantPhotos
     @RestaurantID int
 AS
     SELECT PhotoID, PhotoType, Caption, ImageData, ImageType
-    FROM RestaurantPhoto
+    FROM TP_RestaurantPhoto
     WHERE RestaurantID = @RestaurantID
     ORDER BY PhotoID
 GO
@@ -122,7 +122,7 @@ GO
 -- Counts how many 1, 2, 3, 4 and 5 star food ratings a restaurant has.
 -- Used to show the rating bars on the profile page.
 -- =============================================
-CREATE PROCEDURE GetRatingCounts
+CREATE PROCEDURE TP_GetRatingCounts
     @RestaurantID int
 AS
     SELECT FoodRating AS Stars, COUNT(*) AS RatingCount
@@ -163,7 +163,7 @@ AS
     SELECT rv.ReviewID, rv.RestaurantID, r.RestaurantName, rv.ReviewDate, rv.VisitDate,
            rv.ReviewTitle, rv.FoodRating, rv.ServiceRating, rv.AtmosphereRating, rv.PriceRating
     FROM Review rv
-    INNER JOIN Restaurants r ON rv.RestaurantID = r.RestaurantID
+    INNER JOIN TP_Restaurants r ON rv.RestaurantID = r.RestaurantID
     WHERE rv.ReviewerID = @ReviewerID
     ORDER BY rv.ReviewDate DESC
 GO
@@ -349,17 +349,17 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[GetRestaurantByRep]
-CREATE PROCEDURE GetRestaurantByRep
+CREATE PROCEDURE TP_GetRestaurantByRep
     @RepUserID int
 AS
     SELECT RestaurantID, RestaurantName, CuisineID, Description, StreetAddress, City, State,
            ZipCode, Phone, Email, WebsiteUrl, OwnerName, PriceRange
-    FROM Restaurants
+    FROM TP_Restaurants
     WHERE RepresentativeUserID = @RepUserID
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[AddRestaurant]
-CREATE PROCEDURE AddRestaurant
+CREATE PROCEDURE TP_AddRestaurant
     @RepUserID int,
     @RestaurantName varchar(100),
     @CuisineID int,
@@ -374,7 +374,7 @@ CREATE PROCEDURE AddRestaurant
     @OwnerName varchar(100),
     @PriceRange int
 AS
-    INSERT INTO Restaurants (RestaurantName, CuisineID, Description, StreetAddress, City, State, ZipCode,
+    INSERT INTO TP_Restaurants (RestaurantName, CuisineID, Description, StreetAddress, City, State, ZipCode,
                              Phone, Email, WebsiteUrl, OwnerName, PriceRange, DateAdded, RepresentativeUserID)
     VALUES (@RestaurantName, @CuisineID, @Description, @StreetAddress, @City, @State, @ZipCode,
             @Phone, @Email, @WebsiteUrl, @OwnerName, @PriceRange, GETDATE(), @RepUserID)
@@ -383,7 +383,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[UpdateRestaurant]
-CREATE PROCEDURE UpdateRestaurant
+CREATE PROCEDURE TP_UpdateRestaurant
     @RestaurantID int,
     @RepUserID int,
     @RestaurantName varchar(100),
@@ -399,7 +399,7 @@ CREATE PROCEDURE UpdateRestaurant
     @OwnerName varchar(100),
     @PriceRange int
 AS
-    UPDATE Restaurants
+    UPDATE TP_Restaurants
     SET RestaurantName = @RestaurantName,
         CuisineID = @CuisineID,
         Description = @Description,
@@ -416,7 +416,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[DeleteRestaurantHours]
-CREATE PROCEDURE DeleteRestaurantHours
+CREATE PROCEDURE TP_DeleteRestaurantHours
     @RestaurantID int
 AS
     DELETE FROM RestaurantHours
@@ -424,7 +424,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[AddRestaurantHours]
-CREATE PROCEDURE AddRestaurantHours
+CREATE PROCEDURE TP_AddRestaurantHours
     @RestaurantID int,
     @DayOfWeek int,
     @OpenTime time,
@@ -436,25 +436,25 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[DeleteSocialLinks]
-CREATE PROCEDURE DeleteSocialLinks
+CREATE PROCEDURE TP_DeleteSocialLinks
     @RestaurantID int
 AS
-    DELETE FROM RestaurantSocialLink
+    DELETE FROM TP_RestaurantSocialLink
     WHERE RestaurantID = @RestaurantID
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[AddSocialLink]
-CREATE PROCEDURE AddSocialLink
+CREATE PROCEDURE TP_AddSocialLink
     @RestaurantID int,
     @PlatformID int,
     @LinkUrl varchar(200)
 AS
-    INSERT INTO RestaurantSocialLink (RestaurantID, PlatformID, LinkUrl)
+    INSERT INTO TP_RestaurantSocialLink (RestaurantID, PlatformID, LinkUrl)
     VALUES (@RestaurantID, @PlatformID, @LinkUrl)
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[AddRestaurantPhoto]
-CREATE PROCEDURE AddRestaurantPhoto
+CREATE PROCEDURE TP_AddRestaurantPhoto
     @RestaurantID int,
     @PhotoType varchar(20),
     @Caption varchar(200),
@@ -467,7 +467,7 @@ AS
 GO
 
 -- SQL_STORED_PROCEDURE: [dbo].[DeleteRestaurantPhoto]
-CREATE PROCEDURE DeleteRestaurantPhoto
+CREATE PROCEDURE TP_DeleteRestaurantPhoto
     @PhotoID int,
     @RestaurantID int
 AS
