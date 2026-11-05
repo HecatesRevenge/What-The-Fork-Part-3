@@ -20,7 +20,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetCuisines";
+            objCommand.CommandText = "TP_GetCuisines";
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
 
@@ -28,7 +28,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetLocations";
+            objCommand.CommandText = "TP_GetLocations";
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
 
@@ -37,7 +37,7 @@ namespace WhatTheForkMVC.Database
 
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "SearchRestaurants";
+            objCommand.CommandText = "TP_SearchRestaurants";
 
             objCommand.Parameters.AddWithValue("@CuisineList", criteria.CuisineList);
             objCommand.Parameters.AddWithValue("@City", criteria.City);
@@ -77,7 +77,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantByID";
+            objCommand.CommandText = "TP_GetRestaurantByID";
 
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
@@ -86,7 +86,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantLogo";
+            objCommand.CommandText = "TP_GetRestaurantLogo";
             objCommand.Parameters.AddWithValue("@RestaurantID", RestaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -95,7 +95,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantPhotos";
+            objCommand.CommandText = "TP_GetRestaurantPhotos";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -104,7 +104,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRatingCounts";
+            objCommand.CommandText = "TP_GetRatingCounts";
 
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
@@ -114,7 +114,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantByRep";
+            objCommand.CommandText = "TP_GetRestaurantByRep";
             objCommand.Parameters.AddWithValue("@RepUserID", repUserID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -124,7 +124,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetSocialMediaPlatforms";
+            objCommand.CommandText = "TP_GetSocialMediaPlatforms";
 
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -134,7 +134,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "AddRestaurant";
+            odjCommand.CommandText = "TP_AddRestaurant";
 
             odjCommand.Parameters.AddWithValue("@RepUserID", restaurant.RepUserID);
             AddRestaurantParameters(odjCommand, restaurant);
@@ -157,7 +157,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "UpdateRestaurant";
+            odjCommand.CommandText = "TP_UpdateRestaurant";
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurant.RestaurantID);
             odjCommand.Parameters.AddWithValue("@RepUserID", restaurant.RepUserID);
             AddRestaurantParameters(odjCommand, restaurant);
@@ -185,7 +185,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "DeleteRestaurantHours";
+            objCommand.CommandText = "TP_DeleteRestaurantHours";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.DoUpdateUsingCmdObj(objCommand);
         }
@@ -194,7 +194,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddRestaurantHours";
+            objCommand.CommandText = "TP_AddRestaurantHours";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             objCommand.Parameters.AddWithValue("@DayOfWeek", dayOfWeek);
             objCommand.Parameters.AddWithValue("@OpenTime", openTime);
@@ -207,7 +207,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "DeleteSocialLinks";
+            objCommand.CommandText = "TP_DeleteSocialLinks";
 
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.DoUpdateUsingCmdObj(objCommand);
@@ -218,7 +218,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddSocialLink";
+            objCommand.CommandText = "TP_AddSocialLink";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             objCommand.Parameters.AddWithValue("@PlatformID", platformID);
             objCommand.Parameters.AddWithValue("@LinkURL", url);
@@ -229,7 +229,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjComamand = new SqlCommand();
             odjComamand.CommandType = CommandType.StoredProcedure;
-            odjComamand.CommandText = "AddRestaurantPhoto";
+            odjComamand.CommandText = "TP_AddRestaurantPhoto";
 
             odjComamand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             odjComamand.Parameters.AddWithValue("@PhotoType", photoType);
@@ -245,7 +245,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "DeleteRestaurantPhoto";
+            odjCommand.CommandText = "TP_DeleteRestaurantPhoto";
             odjCommand.Parameters.AddWithValue("@PhotoID", photoID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
@@ -256,7 +256,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantHours";
+            objCommand.CommandText = "TP_GetRestaurantHours";
 
             objCommand.Parameters.AddWithValue("@RestaurantID", theRestaurantID);
 
@@ -295,7 +295,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetRestaurantSocialLinks";
+            objCommand.CommandText = "TP_GetRestaurantSocialLinks";
             objCommand.Parameters.AddWithValue("@RestaurantID", theRestaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }

@@ -18,7 +18,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewsByRestaurantID";
+            objCommand.CommandText = "TP_GetReviewsByRestaurantID";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
 
             DataSet results = odjDB.GetDataSetUsingCmdObj(objCommand);
@@ -51,7 +51,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewerID";
+            objCommand.CommandText = "TP_GetReviewerID";
             objCommand.Parameters.AddWithValue("@UserID", userID);
 
             DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
@@ -68,7 +68,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewsByReviewer";
+            objCommand.CommandText = "TP_GetReviewsByReviewer";
             objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
 
             return odjDB.GetDataSetUsingCmdObj(objCommand);
@@ -78,7 +78,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewByID";
+            objCommand.CommandText = "TP_GetReviewByID";
 
             objCommand.Parameters.AddWithValue("@ReviewID", reviewID);
             objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
@@ -126,7 +126,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "AddReview";
+            odjCommand.CommandText = "TP_AddReview";
 
             odjCommand.Parameters.AddWithValue("@RestaurantID", theReview.RestaurantID);
             odjCommand.Parameters.AddWithValue("@ReviewerID", theReview.ReviewerID);
@@ -146,7 +146,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "UpdateReview";
+            odjCommand.CommandText = "TP_UpdateReview";
 
             odjCommand.Parameters.AddWithValue("@ReviewID", review.ReviewID);
             odjCommand.Parameters.AddWithValue("ReviewerID", review.ReviewerID);
@@ -165,7 +165,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "UpdateReviewPhoto";
+            odjCommand.CommandText = "TP_UpdateReviewPhoto";
 
             odjCommand.Parameters.AddWithValue("@ReviewID", review);
             odjCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
@@ -199,7 +199,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "DeleteReview";
+            odjCommand.CommandText = "TP_DeleteReview";
             odjCommand.Parameters.AddWithValue("@ReviewID", reviewID);
             odjCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
@@ -211,11 +211,11 @@ namespace WhatTheForkMVC.Database
             objCommand.CommandType = CommandType.StoredProcedure;
             if (isHelpful)
             {
-                objCommand.CommandText = "AddHelpfulVote";
+                objCommand.CommandText = "TP_AddHelpfulVote";
             }
             else
             {
-                objCommand.CommandText = "AddNotHelpfulVote";
+                objCommand.CommandText = "TP_AddNotHelpfulVote";
             }
             objCommand.Parameters.AddWithValue("@ReviewID", reviewID);
             return odjDB.DoUpdateUsingCmdObj(objCommand);
@@ -226,7 +226,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddReviewResponse";
+            objCommand.CommandText = "TP_AddReviewResponse";
 
             objCommand.Parameters.AddWithValue("@ReviewID", reviewID);
             objCommand.Parameters.AddWithValue("@RestaurantID", resturantID);
