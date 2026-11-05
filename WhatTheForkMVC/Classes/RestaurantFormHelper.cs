@@ -25,16 +25,12 @@ namespace WhatTheForkMVC.Classes
         }
 
 
-        public void FillCuisines(DropDownList list)
+        public DataSet GetCuisines()
         {
-            list.DataSource = objRestaurantDB.GetCuisines();
-            list.DataTextField = "CuisineName";
-            list.DataValueField = "CuisineID";
-            list.DataBind();
-            list.Items.Insert(0, new ListItem("Choose a cuisine", "0"));
+            return objRestaurantDB.GetCuisines();
         }
 
-        public void FillStates(DropDownList list)
+        public String[,] GetStates()
         {
             String[] stateCodes = { "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL",
                 "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
@@ -48,11 +44,13 @@ namespace WhatTheForkMVC.Classes
                 "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
                 "West Virginia", "Wisconsin", "Wyoming" };
 
-            list.Items.Add(new ListItem("Choose a state", ""));
+            String[,] states = new String[stateCodes.Length, 2];
             for (int i = 0; i < stateCodes.Length; i++)
             {
-                list.Items.Add(new ListItem(stateNames[i], stateCodes[i]));
+                states[i, 0] = stateCodes[i];
+                states[i, 1] = stateNames[i];
             }
+            return states;
         }
 
 
@@ -138,46 +136,35 @@ namespace WhatTheForkMVC.Classes
 
 
 
-        public void SaveHours(int restaurantID, GridView hoursGrid)
+        public void SaveHours(int restaurantID, String[] openTimes, String[] closeTimes, int[] closedDays)
         {
             objRestaurantDB.DeleteHours(restaurantID);
 
-            foreach (GridViewRow row in hoursGrid.Rows)
+            for (int day = 1; day <= 7; day++)
             {
-                int dayOfWeek = Convert.ToInt32(hoursGrid.DataKeys[row.RowIndex].Value);
-                CheckBox chkClosed = (CheckBox)row.FindControl("chkClosed");
-                TextBox txtOpen = (TextBox)row.FindControl("txtOpen");
-                TextBox txtClose = (TextBox)row.FindControl("txtClose");
-
-                if (chkClosed.Checked)
+                if (closedDays != null && closedDays.Contains(day))
                 {
-                    objRestaurantDB.AddHours(restaurantID, dayOfWeek, TimeSpan.Zero, TimeSpan.Zero, true);
-
+                    objRestaurantDB.AddHours(restaurantID, day, TimeSpan.Zero, TimeSpan.Zero, true);
                 }
                 else
                 {
-                    objRestaurantDB.AddHours(restaurantID, dayOfWeek, TimeSpan.Parse(txtOpen.Text.Trim()),
-                       TimeSpan.Parse(txtClose.Text.Trim()), false);
+                    objRestaurantDB.AddHours(restaurantID, day, TimeSpan.Parse(openTimes[day - 1].Trim()),
+                       TimeSpan.Parse(closeTimes[day - 1].Trim()), false);
                 }
             }
-
         }
 
-        public void SaveSocialLinks(int restaurantID, GridView linksGrid)
+        public void SaveSocialLinks(int restaurantID, int[] platformIDs, String[] links)
         {
             objRestaurantDB.DeleteSocialLinks(restaurantID);
 
-            foreach (GridViewRow row in linksGrid.Rows)
+            for (int i = 0; i < platformIDs.Length; i++)
             {
-                TextBox txtLink = (TextBox)row.FindControl("txtLink");
-                String link = txtLink.Text.Trim();
-                int platformID = Convert.ToInt32(linksGrid.DataKeys[row.RowIndex].Values["PlatformID"]);
-
+                String link = links[i] == null ? "" : links[i].Trim();
                 if (link != "")
-                    objRestaurantDB.AddSocialLink(restaurantID, platformID, link);
+                    objRestaurantDB.AddSocialLink(restaurantID, platformIDs[i], link);
             }
         }
-
 
         public int SavePhoto(int restaurantID, String photoType, String caption, byte[] imageData, String imageType)
         {
@@ -194,14 +181,6 @@ namespace WhatTheForkMVC.Classes
             return objRestaurantDB.AddPhoto(restaurantID, photoType, caption, imageData, imageType);
         }
 
-
-
-        public void SelectValue(ListControl list, String value)
-        {
-            ListItem item = list.Items.FindByValue(value);
-            if (item != null)
-                list.SelectedValue = value;
-        }
 
         public String GetText(Object value)
         {
