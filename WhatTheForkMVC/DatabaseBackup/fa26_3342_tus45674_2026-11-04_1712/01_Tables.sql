@@ -52,6 +52,34 @@ CREATE TABLE [dbo].[TP_RestaurantPhoto] (
 );
 GO
 
+CREATE TABLE [dbo].[TP_SerRestaurants](
+[ID] INT NOT NULL,
+[Restaurant] varbinary(max),
+[Rep] int
+);
+GO
+
+CREATE TABLE [dbo].[TP_SerUsers](
+[ID] INT NOT NULL,
+[Account] varbinary(max)
+);
+GO
+
+CREATE TABLE [dbo].[TP_SerReviews](
+[ID] INT NOT NULL,
+[RestID] INT,
+[Reviewer] INT,
+[Review] varbinary(max)
+);
+GO
+
+CREATE TABLE [dbo].[TP_SerReservations](
+[ID] INT NOT NULL,
+[restID] INT,
+[Reservation] varbinary(max)
+);
+GO
+
 CREATE TABLE [dbo].[TP_Restaurants] (
     [RestaurantID] INT IDENTITY(1,1) NOT NULL,
     [RestaurantName] VARCHAR(50) NOT NULL,
