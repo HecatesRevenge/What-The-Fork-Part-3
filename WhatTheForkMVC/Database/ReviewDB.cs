@@ -1,11 +1,13 @@
-﻿using System;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using WhatTheForkMVC.Classes;
-using Microsoft.Data.SqlClient;
 
 
 namespace WhatTheForkMVC.Database
@@ -13,42 +15,61 @@ namespace WhatTheForkMVC.Database
     public class ReviewDB
     {
         DBConnect odjDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
 
         public DataSet GetReviews(int restaurantID)
         {
-            SqlCommand objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewsByRestaurantID";
-            objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
 
-            DataSet results = odjDB.GetDataSetUsingCmdObj(objCommand);
+            String strSQL = "SELECT Review FROM TP_SerReviews WHERE RestID ='" + restaurantID + "'";
+            odjDB.GetDataSet(strSQL);
 
-
-            DataTable objTable = results.Tables[0];
-            objTable.Columns.Add("ReviewerName", typeof(String));
-            objTable.Columns.Add("ReviewerHome", typeof(String));
-
-            foreach (DataRow row in objTable.Rows)
+            if (odjDB.GetField("Review", 0) != System.DBNull.Value)
             {
-                String lastName = row["LastName"].ToString();
-                String lastInitial = "";
-                if (lastName.Length > 0)
-                    lastInitial = " " + lastName.Substring(0, 1) + ".";
 
-                row["ReviewerName"] = row["FirstName"].ToString() + lastInitial;
+                Byte[] byteArray = (Byte[])odjDB.GetField("Review", 0);
 
-                if (row["HomeCity"] == DBNull.Value || row["HomeState"] == DBNull.Value)
-                    row["ReviewerHome"] = "";
-                else
-                    row["ReviewerHome"] = row["HomeCity"].ToString() + ", " + row["HomeState"].ToString();
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+                BinaryFormatter deSerializer = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+                MemoryStream memStream = new MemoryStream(byteArray);
+                Review objrev = (Review)deSerializer.Deserialize(memStream);
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "GetReviewsByRestaurantID";
+                objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
+
+                DataSet results = odjDB.GetDataSetUsingCmdObj(objCommand);
+
+
+                DataTable objTable = results.Tables[0];
+                objTable.Columns.Add("ReviewerName", typeof(String));
+                objTable.Columns.Add("ReviewerHome", typeof(String));
+
+                foreach (DataRow row in objTable.Rows)
+                {
+                    String lastName = row["LastName"].ToString();
+                    String lastInitial = "";
+                    if (lastName.Length > 0)
+                        lastInitial = " " + lastName.Substring(0, 1) + ".";
+
+                    row["ReviewerName"] = row["FirstName"].ToString() + lastInitial;
+
+                    if (row["HomeCity"] == DBNull.Value || row["HomeState"] == DBNull.Value)
+                        row["ReviewerHome"] = "";
+                    else
+                        row["ReviewerHome"] = row["HomeCity"].ToString() + ", " + row["HomeState"].ToString();
+                }
+
+                return results;
             }
-
-            return results;
+            else { return null; }
 
         }
 
         public int GetReviewerID(int userID)
         {
+
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetReviewerID";
@@ -66,64 +87,107 @@ namespace WhatTheForkMVC.Database
 
         public DataSet GetReviewsByReviewer(int reviewerID)
         {
-            SqlCommand objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewsByReviewer";
-            objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
+            String strSQL = "SELECT Review FROM TP_SerReviews WHERE Reviewer ='" + reviewerID + "'";
+            odjDB.GetDataSet(strSQL);
 
-            return odjDB.GetDataSetUsingCmdObj(objCommand);
+            if (odjDB.GetField("Review", 0) != System.DBNull.Value)
+            {
+
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "GetReviewsByReviewer";
+                objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
+
+                return odjDB.GetDataSetUsingCmdObj(objCommand);
+            }
+            else { return null; }
         }
 
         public Review GetReviewByID(int reviewID, int reviewerID)
         {
-            SqlCommand objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReviewByID";
+            String strSQL = "SELECT Review FROM TP_SerReviews WHERE ID ='" + reviewID + "'";
+            odjDB.GetDataSet(strSQL);
 
-            objCommand.Parameters.AddWithValue("@ReviewID", reviewID);
-            objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
-
-            DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
-
-            if (ds.Tables[0].Rows.Count == 0)
+            if (odjDB.GetField("Review", 0) != System.DBNull.Value)
             {
-                return null;
+
+                Byte[] byteArray = (Byte[])odjDB.GetField("Review", 0);
+
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+                BinaryFormatter deSerializer = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+                MemoryStream memStream = new MemoryStream(byteArray);
+                Review objrev = (Review)deSerializer.Deserialize(memStream);
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "GetReviewByID";
+
+                objCommand.Parameters.AddWithValue("@ReviewID", reviewID);
+                objCommand.Parameters.AddWithValue("@ReviewerID", reviewerID);
+
+                DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
+
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+
+                DataRow row = ds.Tables[0].Rows[0];
+                Review objReview = new Review();
+                objReview.ReviewID = Convert.ToInt32(row["ReviewID"]);
+                objReview.RestaurantID = Convert.ToInt32(row["RestaurantID"]);
+                objReview.ReviewerID = reviewerID;
+                objReview.ReviewTitle = row["ReviewTitle"].ToString();
+                objReview.ReviewText = row["ReviewText"].ToString();
+                objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
+                objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
+                objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
+
+                if (row["AtmosphereRating"] != DBNull.Value)
+                {
+                    objReview.AtmosphereRating = Convert.ToInt32(row["AtmosphereRating"]);
+                }
+
+                if (row["VisitDate"] != DBNull.Value)
+                {
+                    objReview.VisitDate = Convert.ToDateTime(row["VisitDate"]);
+
+                }
+
+                if (row["ReviewPhoto"] != DBNull.Value)
+                {
+                    objReview.ReviewPhoto = (byte[])row["ReviewPhoto"];
+                    objReview.ReviewPhotoType = row["ReviewPhotoType"].ToString();
+                }
+
+                return objReview;
             }
-
-            DataRow row = ds.Tables[0].Rows[0];
-            Review objReview = new Review();
-            objReview.ReviewID = Convert.ToInt32(row["ReviewID"]);
-            objReview.RestaurantID = Convert.ToInt32(row["RestaurantID"]);
-            objReview.ReviewerID = reviewerID;
-            objReview.ReviewTitle = row["ReviewTitle"].ToString();
-            objReview.ReviewText = row["ReviewText"].ToString();
-            objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
-            objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
-            objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
-
-            if (row["AtmosphereRating"] != DBNull.Value)
-            {
-                objReview.AtmosphereRating = Convert.ToInt32(row["AtmosphereRating"]);
-            }
-
-            if (row["VisitDate"] != DBNull.Value)
-            {
-                objReview.VisitDate = Convert.ToDateTime(row["VisitDate"]);
-
-            }
-
-            if (row["ReviewPhoto"] != DBNull.Value)
-            {
-                objReview.ReviewPhoto = (byte[])row["ReviewPhoto"];
-                objReview.ReviewPhotoType = row["ReviewPhotoType"].ToString();
-            }
-
-            return objReview;
+            else { return null; }
 
         }
 
-        public int AddReview(Review theReview)
+        public void AddReview(Review theReview)
         {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+            BinaryFormatter serializer = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+            MemoryStream memStream = new MemoryStream();
+
+            Byte[] byteArray;
+
+            serializer.Serialize(memStream, theReview);
+            byteArray = memStream.ToArray();
+            objCommand.CommandType = CommandType.StoredProcedure;
+
+            objCommand.CommandText = "TP_StoreReviews_Se";
+
+            objCommand.Parameters.AddWithValue("@theID", theReview.ReviewID);
+
+            objCommand.Parameters.AddWithValue("@theReview", byteArray);
+            /*
+            
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
             odjCommand.CommandText = "AddReview";
@@ -140,10 +204,29 @@ namespace WhatTheForkMVC.Database
             AddPhotoParameters(odjCommand, theReview.ReviewPhoto, theReview.ReviewPhotoType);
 
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
+            */
         }
 
-        public int UpdateReview(Review review)
+        public void UpdateReview(Review review)
         {
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+            BinaryFormatter serializer = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+            MemoryStream memStream = new MemoryStream();
+
+            Byte[] byteArray;
+
+            serializer.Serialize(memStream, review);
+            byteArray = memStream.ToArray();
+            objCommand.CommandType = CommandType.StoredProcedure;
+
+            objCommand.CommandText = "TP_StoreReview_Se";
+
+            objCommand.Parameters.AddWithValue("@theID", review.ReviewID);
+
+            objCommand.Parameters.AddWithValue("@theReview", byteArray);
+            /*
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
             odjCommand.CommandText = "UpdateReview";
@@ -159,6 +242,8 @@ namespace WhatTheForkMVC.Database
             odjCommand.Parameters.AddWithValue("@PriceRating", review.PriceRating);
 
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
+            */
+            
         }
 
         public int UpdateReviewPhoto(int review, int reviewerID, byte[] photo, String photoType)
