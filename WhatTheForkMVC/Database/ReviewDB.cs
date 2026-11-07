@@ -167,7 +167,7 @@ namespace WhatTheForkMVC.Database
 
         }
 
-        public void AddReview(Review theReview)
+        public int AddReview(Review theReview)
         {
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
             BinaryFormatter serializer = new BinaryFormatter();
@@ -186,7 +186,7 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", theReview.ReviewID);
 
             objCommand.Parameters.AddWithValue("@theReview", byteArray);
-            /*
+            
             
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
@@ -204,10 +204,10 @@ namespace WhatTheForkMVC.Database
             AddPhotoParameters(odjCommand, theReview.ReviewPhoto, theReview.ReviewPhotoType);
 
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
-            */
+            
         }
 
-        public void UpdateReview(Review review)
+        public int UpdateReview(Review review)
         {
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
             BinaryFormatter serializer = new BinaryFormatter();
@@ -226,7 +226,7 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", review.ReviewID);
 
             objCommand.Parameters.AddWithValue("@theReview", byteArray);
-            /*
+            
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
             odjCommand.CommandText = "UpdateReview";
@@ -242,7 +242,7 @@ namespace WhatTheForkMVC.Database
             odjCommand.Parameters.AddWithValue("@PriceRating", review.PriceRating);
 
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
-            */
+            
             
         }
 
