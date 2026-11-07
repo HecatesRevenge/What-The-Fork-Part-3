@@ -1,10 +1,13 @@
-﻿using System;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
-using Microsoft.Data.SqlClient;
+using WhatTheForkMVC.Database;
 
 
 namespace WhatTheForkMVC.Classes
@@ -12,6 +15,7 @@ namespace WhatTheForkMVC.Classes
     public class AccountDB
     {
         DBConnect odjDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
 
         public bool IsUernameTaken(String username)
         {
@@ -29,7 +33,25 @@ namespace WhatTheForkMVC.Classes
 
         public int AddUserAccount(UserAccounts user)
         {
-            SqlCommand objCommand = new SqlCommand();
+
+                #pragma warning disable SYSLIB0011 // Type or member is obsolete
+                BinaryFormatter serializer = new BinaryFormatter();
+                #pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+            MemoryStream memStream = new MemoryStream();
+
+            Byte[] byteArray;
+
+            serializer.Serialize(memStream, user);
+            byteArray = memStream.ToArray();
+            objCommand.CommandType = CommandType.StoredProcedure;
+
+            objCommand.CommandText = "TP_StoreRestaurant_Se";
+
+            objCommand.Parameters.AddWithValue("@theID", user.UserID);
+
+            objCommand.Parameters.AddWithValue("@theUser", byteArray);
+           
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddUserAccount";
 
@@ -57,6 +79,7 @@ namespace WhatTheForkMVC.Classes
 
         public int AddReviewer(int userID, String firstName, String lastName, String homeCity, String homeState)
         {
+            
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddReviewer";
@@ -66,13 +89,14 @@ namespace WhatTheForkMVC.Classes
             objCommand.Parameters.AddWithValue("@LastName", lastName);
             objCommand.Parameters.AddWithValue("@HomeCity", homeCity);
             objCommand.Parameters.AddWithValue("@HomeState", homeState);
-
+            
             return odjDB.DoUpdateUsingCmdObj(objCommand);
 
         }
 
         public UserAccounts GetUserLogin(String username)
         {
+
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetUserLogin";
@@ -94,18 +118,37 @@ namespace WhatTheForkMVC.Classes
 
         public UserAccounts GetUserByID(int userID)
         {
-            SqlCommand objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetUserByID";
-            objCommand.Parameters.AddWithValue("@UserID", userID);
-            DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
-            if (ds.Tables[0].Rows.Count == 0)
+            String strSQL = "SELECT User FROM TP_SerUsers WHERE ID ='" + userID + "'";
+            odjDB.GetDataSet(strSQL);
+
+            if (odjDB.GetField("Review", 0) != System.DBNull.Value)
             {
-                return null;
+                Byte[] byteArray = (Byte[])odjDB.GetField("Review", 0);
+
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
+                BinaryFormatter deSerializer = new BinaryFormatter();
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
+
+                MemoryStream memStream = new MemoryStream(byteArray);
+                UserAccounts objuser = (UserAccounts)deSerializer.Deserialize(memStream);
+             
+
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "GetUserByID";
+                objCommand.Parameters.AddWithValue("@UserID", userID);
+                DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    return null;
+                }
+                UserAccounts objUser = MakeUserAccount(ds.Tables[0].Rows[0]);
+                return objUser;
+
             }
-            UserAccounts objUser = MakeUserAccount(ds.Tables[0].Rows[0]);
-            return objUser;
-        }
+            else { return null; }
+
+            }
 
 
         //Dont want public method having direct access to making useraccounts
