@@ -31,7 +31,7 @@ namespace WhatTheForkMVC.Classes
         }
 
 
-        public void AddUserAccount(UserAccounts user)
+        public int AddUserAccount(UserAccounts user)
         {
 
                 #pragma warning disable SYSLIB0011 // Type or member is obsolete
@@ -51,7 +51,7 @@ namespace WhatTheForkMVC.Classes
             objCommand.Parameters.AddWithValue("@theID", user.UserID);
 
             objCommand.Parameters.AddWithValue("@theUser", byteArray);
-           /*
+           
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddUserAccount";
 
@@ -74,7 +74,7 @@ namespace WhatTheForkMVC.Classes
                 return 0;
             }
 
-            return Convert.ToInt32(returnParm.Value);*/
+            return Convert.ToInt32(returnParm.Value);
         }
 
         public int AddReviewer(int userID, String firstName, String lastName, String homeCity, String homeState)
