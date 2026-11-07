@@ -15,7 +15,7 @@ namespace WhatTheForkMVC.Database
     {
         DBConnect odjDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
-        public void AddReversation(Reservation reservation)
+        public int AddReversation(Reservation reservation)
         {
 
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
@@ -35,7 +35,7 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", reservation.ReservationID);
             objCommand.Parameters.AddWithValue("@theRest", reservation.RestaurantID);
             objCommand.Parameters.AddWithValue("@theReservation", byteArray);
-            /*
+            
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
             odjCommand.CommandText = "AddReservation";
@@ -52,7 +52,7 @@ namespace WhatTheForkMVC.Database
             }
 
             AddReversationParameters(odjCommand, reservation);
-            return odjDB.DoUpdateUsingCmdObj(odjCommand);*/
+            return odjDB.DoUpdateUsingCmdObj(odjCommand);
 
         }
 
@@ -128,7 +128,7 @@ namespace WhatTheForkMVC.Database
             else { return null; }
         }
 
-        public void UpdateReservation(Reservation reservation)
+        public int UpdateReservation(Reservation reservation)
         {
 
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
@@ -148,7 +148,7 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", reservation.ReservationID);
 
             objCommand.Parameters.AddWithValue("@theReservation", byteArray);
-            /*
+            
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
             odjCommand.CommandText = "UpdateReservation";
@@ -168,7 +168,7 @@ namespace WhatTheForkMVC.Database
             odjCommand.Parameters.AddWithValue("@Email", reservation.Email);
             odjCommand.Parameters.AddWithValue("@ReservationDate", reservation.ReservationDate);
             odjCommand.Parameters.AddWithValue("@PartySize", reservation.PartySize);
-            odjCommand.Parameters.AddWithValue("@SpecialRequests", reservation.SpecialRequests);*/
+            odjCommand.Parameters.AddWithValue("@SpecialRequests", reservation.SpecialRequests);
         
         }
 
