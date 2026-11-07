@@ -57,6 +57,47 @@ AS
     WHERE RestaurantID = @RestaurantID AND PhotoType = 'Logo'
 GO
 
+CREATE PROCEDURE TP_StoreRestaurant_Se
+    @theID int,
+    @theRestaurant varbinary(MAX),
+    @theRep int
+AS
+    UPDATE TP_SerRestaurants
+    SET Restaurant = @theRestaurant, Rep = @thRep
+    WHERE ID=@theID
+GO
+
+
+CREATE PROCEDURE TP_StoreUsers_Se
+    @theID int,
+    @theUser varbinary(MAX)
+AS
+    UPDATE TP_SerUsers
+    SET Account = @theUser
+    WHERE ID=@theID
+GO
+
+CREATE PROCEDURE TP_StoreReviews_Se
+    @theID int,
+    @theRest int,
+    @theReviewer int,
+    @theReview varbinary(MAX)
+AS
+    UPDATE TP_SerReviews
+    SET Review = @theReview, RestID = @theRest, Reviewer = @theReviewer
+    WHERE ID=@theID
+GO
+
+CREATE PROCEDURE TP_StoreReservations_Se
+    @theID int,
+    @theRest int,
+    @theReservation varbinary(MAX)
+AS
+    UPDATE TP_SerReservations
+    SET Reservation = @theReservation, restID = @theRest
+    WHERE ID=@theID
+GO
+
 -- SQL_STORED_PROCEDURE: [dbo].[TP_GetRestaurantByID]
 CREATE PROCEDURE TP_GetRestaurantByID
     @RestaurantID int
@@ -323,6 +364,7 @@ AS
     INSERT INTO TP_Reviewer (FirstName, LastName, HomeCity, HomeState, UserID)
     VALUES (@FirstName, @LastName, @HomeCity, @HomeState, @UserID)
 GO
+
 
 -- SQL_STORED_PROCEDURE: [dbo].[TP_GetUserLogin]
 CREATE PROCEDURE TP_GetUserLogin
