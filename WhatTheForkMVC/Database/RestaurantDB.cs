@@ -83,7 +83,6 @@ namespace WhatTheForkMVC.Database
         public DataSet GetRestaurant(int restaurantID)
         {
        
-            
                 String strSQL = "SELECT Restaurant FROM TP_SerRestaurants WHERE ID ='" + restaurantID + "'";
                 odjDB.GetDataSet(strSQL);
             
@@ -179,7 +178,7 @@ namespace WhatTheForkMVC.Database
         }
 
 
-        public void AddRestaurant(Restaurant restaurant)
+        public int AddRestaurant(Restaurant restaurant)
         {
 
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
@@ -199,11 +198,27 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", restaurant.RestaurantID);
             objCommand.Parameters.AddWithValue("@theRep", restaurant.RepUserID);
             objCommand.Parameters.AddWithValue("@theRestaurant", byteArray);
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddRestaurant";
 
+            objCommand.Parameters.AddWithValue("@RepUserID", restaurant.RepUserID);
+            AddRestaurantParameters(objCommand, restaurant);
+
+            SqlParameter returnParam = new SqlParameter("@NewResturantID", SqlDbType.Int);
+            returnParam.Direction = ParameterDirection.ReturnValue;
+            objCommand.Parameters.Add(returnParam);
+
+            odjDB.DoUpdateUsingCmdObj(objCommand);
+
+            if (returnParam.Value == null || returnParam.Value == DBNull.Value)
+            {
+                return -0;
+            }
+            return Convert.ToInt32(returnParam.Value);
 
         }
 
-        public void UpdateRestaurant(Restaurant restaurant)
+        public int UpdateRestaurant(Restaurant restaurant)
         {
 #pragma warning disable SYSLIB0011 // Type or member is obsolete
             BinaryFormatter serializer = new BinaryFormatter();
@@ -222,15 +237,15 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@theID", restaurant.RestaurantID);
             objCommand.Parameters.AddWithValue("@theRep", restaurant.RepUserID);
             objCommand.Parameters.AddWithValue("@theRestaurant", byteArray);
-            /*
+            
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = CommandType.StoredProcedure;
-            odjCommand.CommandText = "UpdateRestaurant";
+            odjCommand.CommandText = "TP_UpdateRestaurant";
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurant.RestaurantID);
             odjCommand.Parameters.AddWithValue("@RepUserID", restaurant.RepUserID);
             AddRestaurantParameters(odjCommand, restaurant);
 
-            return odjDB.DoUpdateUsingCmdObj(odjCommand);*/
+            return odjDB.DoUpdateUsingCmdObj(odjCommand);
         }
 
         private void AddRestaurantParameters(SqlCommand odjCommand, Restaurant restaurant)
