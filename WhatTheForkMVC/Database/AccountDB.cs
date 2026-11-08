@@ -107,6 +107,18 @@ namespace WhatTheForkMVC.Classes
             return objUser;
         }
 
+        public DataSet GetUserSecurityQuestions(int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetUserSecurityQuestions";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+
+            DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
+            return ds;
+
+        }
+
 
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
