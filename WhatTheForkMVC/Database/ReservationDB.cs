@@ -17,7 +17,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "AddReservation";
+            odjCommand.CommandText = "TP_AddReservation";
 
             odjCommand.Parameters.AddWithValue("@restaurantID", reservation.RestaurantID);
 
@@ -38,7 +38,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReservations";
+            objCommand.CommandText = "TP_GetReservations";
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
@@ -47,7 +47,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            objCommand.CommandText = "GetReservationByID";
+            objCommand.CommandText = "TP_GetReservationByID";
 
             objCommand.Parameters.AddWithValue("@ReservationID", reservationID);
             objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
@@ -78,7 +78,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "UpdateReservation";
+            odjCommand.CommandText = "TP_TP_UpdateReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservation.ReservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", reservation.RestaurantID);
@@ -102,7 +102,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "ConfirmReservation";
+            odjCommand.CommandText = "TP_TP_ConfirmReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
@@ -114,7 +114,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "DeleteReservation";
+            odjCommand.CommandText = "TP_TP_DeleteReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);

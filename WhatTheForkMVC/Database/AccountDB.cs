@@ -17,7 +17,7 @@ namespace WhatTheForkMVC.Classes
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "CheckUsername";
+            objCommand.CommandText = "TP_CheckUsername";
 
             objCommand.Parameters.AddWithValue("@Username", username);
 
@@ -31,7 +31,7 @@ namespace WhatTheForkMVC.Classes
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddUserAccount";
+            objCommand.CommandText = "TP_AddUserAccount";
 
             objCommand.Parameters.AddWithValue("@Username", user.Username);
             objCommand.Parameters.AddWithValue("@Password", user.Password);
@@ -59,7 +59,7 @@ namespace WhatTheForkMVC.Classes
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddReviewer";
+            objCommand.CommandText = "TP_AddReviewer";
 
             objCommand.Parameters.AddWithValue("@UserID", userID);
             objCommand.Parameters.AddWithValue("@FirstName", firstName);
@@ -75,7 +75,7 @@ namespace WhatTheForkMVC.Classes
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetUserLogin";
+            objCommand.CommandText = "TP_GetUserLogin";
 
             objCommand.Parameters.AddWithValue("@Username", username);
 
@@ -96,7 +96,7 @@ namespace WhatTheForkMVC.Classes
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "GetUserByID";
+            objCommand.CommandText = "TP_GetUserByID";
             objCommand.Parameters.AddWithValue("@UserID", userID);
             DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
             if (ds.Tables[0].Rows.Count == 0)
