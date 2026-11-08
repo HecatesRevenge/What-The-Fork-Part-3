@@ -39,5 +39,11 @@ namespace WhatTheForkMVC.Controllers
         public void Delete(int id)
         {
         }
+
+        // DELETE api/<ValuesController>/5
+        [HttpDelete("{id}")]
+        public void Post(int id)
+        {
+        }
     }
 }
