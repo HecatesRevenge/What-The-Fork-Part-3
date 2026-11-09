@@ -43,7 +43,7 @@ namespace WhatTheForkMVC.Classes
             {
                 if (Convert.ToInt32(row["QuestionID"]) == questionID)
                 {
-                    String hashedAnswer = row["QuestionID"].ToString();
+                    String hashedAnswer = row["AnswerHash"].ToString();
                     return odjHash.VerifyPassword(CleanResponse(answer), hashedAnswer);
                 }
             }

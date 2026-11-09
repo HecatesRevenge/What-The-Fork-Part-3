@@ -21,6 +21,7 @@ namespace WhatTheForkMVC.Classes
         private String lastName = "";
         private String email = "";
         private String phoneNumber = "";
+        private bool isVerified = false;
 
         public int UserID
         {
@@ -68,6 +69,11 @@ namespace WhatTheForkMVC.Classes
         {
             get { return phoneNumber; }
             set { phoneNumber = value; }
+        }
+        public bool IsVerified
+        {
+            get { return isVerified; }
+            set { isVerified = value; }
         }
 
 

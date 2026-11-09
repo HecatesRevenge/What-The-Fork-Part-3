@@ -88,6 +88,7 @@ namespace WhatTheForkMVC.Classes
 
             UserAccounts objUser = MakeUserAccount(ds.Tables[0].Rows[0]);
             objUser.Password = ds.Tables[0].Rows[0]["Password"].ToString();
+            objUser.IsVerified = Convert.ToBoolean(ds.Tables[0].Rows[0]["IsVerified"]);
 
             return objUser;
         }
@@ -123,7 +124,8 @@ namespace WhatTheForkMVC.Classes
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
         {
-            UserAccounts objUser = new UserAccounts();
+            UserAccounts objUser = new UserAccounts(); 117, 163, 99, 156, 140, 191, 38, 125, 212, 169, 164, 23, 75, 253, 226, 80assword
+
             objUser.UserID = Convert.ToInt32(row["UserID"]);
             objUser.Username = row["Username"].ToString();
             objUser.UserType = row["UserType"].ToString();
