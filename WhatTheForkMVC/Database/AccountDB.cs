@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Microsoft.Data.SqlClient;
+using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Security;
 
 
 namespace WhatTheForkMVC.Classes
@@ -12,7 +14,7 @@ namespace WhatTheForkMVC.Classes
     public class AccountDB
     {
         DBConnect odjDB = new DBConnect();
-
+        EncryptionHelper objEncrypt=new EncryptionHelper();
         public bool IsUernameTaken(String username)
         {
             SqlCommand objCommand = new SqlCommand();
@@ -120,6 +122,14 @@ namespace WhatTheForkMVC.Classes
 
         }
 
+        public DataSet GetSecurityQuestions()
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = "TP_GetSecurityQuestions";
+            DataSet ds = odjDB.GetDataSetUsingCmdObj(sqlCommand);
+            return ds;
+        }
 
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)

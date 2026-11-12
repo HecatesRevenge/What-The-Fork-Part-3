@@ -1,7 +1,7 @@
 ﻿using System;
 using WhatTheForkMVC.Models;
-using WhatTheForkMVC.Classes;
 using System.Data;
+using WhatTheForkMVC.Classes.Security;
 namespace WhatTheForkMVC.Classes
 {
     public class SecurityQuestionChecks

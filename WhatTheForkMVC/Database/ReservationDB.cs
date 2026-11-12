@@ -6,6 +6,7 @@ using WhatTheForkMVC.Classes;
 using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Data.SqlClient;
+using WhatTheForkMVC.Classes.Reservation;
 
 namespace WhatTheForkMVC.Database
 {

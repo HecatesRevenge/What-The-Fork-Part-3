@@ -1,5 +1,6 @@
 ﻿using System;
-namespace WhatTheForkMVC.Classes
+using WhatTheForkMVC.Classes.Security;
+namespace WhatTheForkMVC.Classes.Login
 {
     public class LoginCookie
     {

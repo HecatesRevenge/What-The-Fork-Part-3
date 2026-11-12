@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Security
 {
     public class EncryptionHelper
     {

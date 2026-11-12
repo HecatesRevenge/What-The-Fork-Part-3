@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography.X509Certificates;
 using WhatTheForkMVC.Classes;
+using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Security;
 
 namespace WhatTheForkMVC.Controllers
 {

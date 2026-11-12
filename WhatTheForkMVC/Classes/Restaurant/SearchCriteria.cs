@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Restaurant
 {
     public class SearchCriteria
     {
