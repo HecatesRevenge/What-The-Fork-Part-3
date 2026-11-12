@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using WhatTheForkMVC.Classes;
-using WhatTheForkMVC.Classes.Email;
-namespace WhatTheForkMVC.Classes.Email
+using WhatTheForkMVC.Classes.Emails;
+namespace WhatTheForkMVC.Classes.Emails
 {
     public class VerificationEmail
     {

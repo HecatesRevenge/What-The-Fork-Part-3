@@ -40,7 +40,7 @@ namespace WhatTheForkMVC.Classes
             objCommand.Parameters.AddWithValue("@UserType", user.UserType);
             objCommand.Parameters.AddWithValue("@FirstName", user.FirstName);
             objCommand.Parameters.AddWithValue("@LastName", user.LastName);
-            objCommand.Parameters.AddWithValue("@Email", user.Email);
+            objCommand.Parameters.AddWithValue("@Email", objEncrypt.Encrypt(user.Email));
             objCommand.Parameters.AddWithValue("@Phone", user.PhoneNumber);
 
             SqlParameter returnParm = new SqlParameter("NewUserID", SqlDbType.Int);
@@ -172,7 +172,7 @@ namespace WhatTheForkMVC.Classes
             objUser.UserType = row["UserType"].ToString();
             objUser.FirstName = row["FirstName"].ToString();
             objUser.LastName = row["LastName"].ToString();
-            objUser.Email = row["Email"].ToString();
+            objUser.Email = objEncrypt.Decrypt(row["Email"].ToString());
             objUser.PhoneNumber = row["Phone"].ToString();
 
             return objUser;
