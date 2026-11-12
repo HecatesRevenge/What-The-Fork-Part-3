@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using WhatTheForkMVC.Classes;
 using Microsoft.Data.SqlClient;
+using WhatTheForkMVC.Classes.Reviews;
 
 
 namespace WhatTheForkMVC.Database

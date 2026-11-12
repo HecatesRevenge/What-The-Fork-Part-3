@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Microsoft.Data.SqlClient;
+using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Security;
 
 
 namespace WhatTheForkMVC.Classes
@@ -12,7 +14,7 @@ namespace WhatTheForkMVC.Classes
     public class AccountDB
     {
         DBConnect odjDB = new DBConnect();
-
+        EncryptionHelper objEncrypt = new EncryptionHelper();
         public bool IsUernameTaken(String username)
         {
             SqlCommand objCommand = new SqlCommand();
@@ -88,6 +90,7 @@ namespace WhatTheForkMVC.Classes
 
             UserAccounts objUser = MakeUserAccount(ds.Tables[0].Rows[0]);
             objUser.Password = ds.Tables[0].Rows[0]["Password"].ToString();
+            objUser.IsVerified = Convert.ToBoolean(ds.Tables[0].Rows[0]["IsVerified"]);
 
             return objUser;
         }
@@ -107,11 +110,42 @@ namespace WhatTheForkMVC.Classes
             return objUser;
         }
 
+        public DataSet GetUserSecurityQuestions(int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetUserSecurityQuestions";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
 
+            DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
+            return ds;
+
+        }
+
+        public DataSet GetSecurityQuestions()
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.CommandText = "TP_GetSecurityQuestions";
+            DataSet ds = odjDB.GetDataSetUsingCmdObj(sqlCommand);
+            return ds;
+        }
+
+        public int AddSecurityAnswer(int userID, int questionID, String answerHash)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddSecurityAnswer";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            objCommand.Parameters.AddWithValue("@QuestionID", questionID);
+            objCommand.Parameters.AddWithValue("@AnswerHash", answerHash);
+            return odjDB.DoUpdateUsingCmdObj(objCommand);
+        }
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
         {
             UserAccounts objUser = new UserAccounts();
+
             objUser.UserID = Convert.ToInt32(row["UserID"]);
             objUser.Username = row["Username"].ToString();
             objUser.UserType = row["UserType"].ToString();

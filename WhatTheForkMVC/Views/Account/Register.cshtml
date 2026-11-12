@@ -1,0 +1,130 @@
+﻿@model RegisterForm
+@{
+    ViewData["Title"] = "Register";
+    DataSet questions = (DataSet)ViewData["Questions"];
+}
+<div class="search-hero">
+    <p class="eyebrow">Join What the Fork</p>
+    <h1>Create an account</h1>
+    <p class="lead">
+        Reviewers can write and manage their reviews.
+        Restaurant representatives can add and manage their restaurant.
+    </p>
+</div>
+
+<div class="container search-main">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-7">
+            <div class="account-card">
+                <h2 class="filter-title">Register</h2>
+
+                @if (ViewData["Error"] != null)
+                {
+                    <span class="error-message d-block">@Html.Raw(ViewData["Error"])</span>
+                }
+
+                <form asp-controller="Account" asp-action="Register" method="post">
+                    <div class="account-field account-type">
+                        <span class="filter-label d-block">Account type</span>
+                        <label><input asp-for="AccountType" type="radio" value="Reviewer" />Reviewer</label>
+                        <label><input asp-for="AccountType" type="radio" value="Representative" />Restaurant Representative</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 account-field">
+                            <label asp-for="FirstName" class="filter-label">First Name</label>
+                            <input asp-for="FirstName" class="form-control mt-1" maxlength="50" />
+                        </div>
+                        <div class="col-md-6 account-field">
+                            <label asp-for="LastName" class="filter-label">Last Name</label>
+                            <input asp-for="LastName" class="form-control mt-1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 account-field">
+                            <label asp-for="Email" class="filter-label">Email</label>
+                            <input asp-for="Email" type="text" class="form-control mt-1" maxlength="100" />
+                        </div>
+                        <div class="col-md-6 account-field">
+                            <label asp-for="Phone" class="filter-label">Phone (optional)</label>
+                            <input asp-for="Phone" class="form-control mt-1" maxlength="20" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8 account-field">
+                            <label asp-for="HomeCity" class="filter-label">Home City (reviewers only)</label>
+                            <input asp-for="HomeCity" class="form-control mt-1" maxlength="60" />
+                        </div>
+                        <div class="col-md-4 account-field">
+                            <label asp-for="HomeState" class="filter-label">State</label>
+                            <input asp-for="HomeState" class="form-control mt-1" maxlength="2" />
+                        </div>
+                    </div>
+
+                    <div class="account-field">
+                        <label asp-for="Username" class="filter-label">Username</label>
+                        <input asp-for="Username" class="form-control mt-1" maxlength="50" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 account-field">
+                            <label asp-for="Password" class="filter-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control mt-1" maxlength="50" />
+                        </div>
+                        <div class="col-md-6 account-field">
+                            <label asp-for="ConfirmPassword" class="filter-label">Confirm password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control mt-1" maxlength="50" />
+                        </div>
+                    </div>
+
+                    <h3 class="filter-title mt-2">Security questions</h3>
+                    <p class="filter-hint">Choose three different questions. These are used if you forget your username or password.</p>
+
+                    <div class="account-field">
+                        <select asp-for="Question1" class="form-select">
+                            <option value="0">Choose question 1</option>
+                            @foreach (DataRow row in questions.Tables[0].Rows)
+                            {
+                                <option value="@row["QuestionID"]">@row["QuestionText"]</option>
+                            }
+                        </select>
+                        <input asp-for="Answer1" class="form-control mt-1" maxlength="100" placeholder="Answer 1" />
+                    </div>
+
+                    <div class="account-field">
+                        <select asp-for="Question2" class="form-select">
+                            <option value="0">Choose question 2</option>
+                            @foreach (DataRow row in questions.Tables[0].Rows)
+                            {
+                                <option value="@row["QuestionID"]">@row["QuestionText"]</option>
+                            }
+                        </select>
+                        <input asp-for="Answer2" class="form-control mt-1" maxlength="100" placeholder="Answer 2" />
+                    </div>
+
+                    <div class="account-field">
+                        <select asp-for="Question3" class="form-select">
+                            <option value="0">Choose question 3</option>
+                            @foreach (DataRow row in questions.Tables[0].Rows)
+                            {
+                                <option value="@row["QuestionID"]">@row["QuestionText"]</option>
+                            }
+                        </select>
+                        <input asp-for="Answer3" class="form-control mt-1" maxlength="100" placeholder="Answer 3" />
+                    </div>
+
+                    <div class="account-field">
+                        <input asp-for="SaveLoginID" class="form-check-input" />
+                        <label asp-for="SaveLoginID" class="filter-label">Save my username on this computer</label>
+                    </div>
+
+                    <input type="submit" value="Create Account" class="btn btn-wtf w-100 mt-3" />
+                </form>
+
+                <p class="account-switch">Already have an account? <a asp-controller="Account" asp-action="Login">Log in here</a></p>
+            </div>
+        </div>
+    </div>
+</div>

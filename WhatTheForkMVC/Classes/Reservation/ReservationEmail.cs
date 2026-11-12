@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WhatTheForkMVC.Classes.Emai;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Reservation
 {
     public class ReservationEmail
     {

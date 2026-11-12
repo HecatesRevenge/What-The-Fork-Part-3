@@ -1,4 +1,6 @@
-﻿namespace WhatTheForkMVC.Classes
+﻿using WhatTheForkMVC.Classes.Login;
+
+namespace WhatTheForkMVC.Classes
 {
     public class SessionUser
     {

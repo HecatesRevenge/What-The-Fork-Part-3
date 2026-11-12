@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Security
 {
     public class PasswordHasher
     {

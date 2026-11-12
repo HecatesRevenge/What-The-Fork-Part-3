@@ -4,11 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using WhatTheForkMVC.Database;
-using WhatTheForkMVC.Classes;
 using Microsoft.Data.SqlClient;
 
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Restaurant
 {
     public class RestaurantFormHelper
     {

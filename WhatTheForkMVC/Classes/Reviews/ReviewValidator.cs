@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Reviews
 {
     public class ReviewValidator
     {

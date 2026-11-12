@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Log Out";
+}
+<div class="container search-main">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+            <div class="account-card">
+                <h2 class="filter-title">Log Out</h2>
+
+                <form asp-controller="Account" asp-action="Logout" method="post">
+                    <div class="account-field">
+                        <input id="forgetMe" name="forgetMe" type="checkbox" class="form-check-input" />
+                        <label for="forgetMe" class="filter-label">Removes username on this computer</label>
+                    </div>
+
+                    <input type="submit" value="Log Out" class="btn btn-wtf w-100 mt-3" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

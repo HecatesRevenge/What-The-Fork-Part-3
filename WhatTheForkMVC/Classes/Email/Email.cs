@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Web;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Emai
 {
     public class Email
     {

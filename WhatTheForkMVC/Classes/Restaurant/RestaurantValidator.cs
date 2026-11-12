@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Restaurant
 {
     public class RestaurantValidator
     {
