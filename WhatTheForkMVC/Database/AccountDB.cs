@@ -141,6 +141,27 @@ namespace WhatTheForkMVC.Classes
             objCommand.Parameters.AddWithValue("@AnswerHash", answerHash);
             return odjDB.DoUpdateUsingCmdObj(objCommand);
         }
+
+        public int SaveVerificationCode(int userID, String verificationCode)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_SaveVerificationCode";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            objCommand.Parameters.AddWithValue("@Code", verificationCode);
+            return odjDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public bool VerifyAccount(int userID, String verificationCode)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_VerifyAccount";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            objCommand.Parameters.AddWithValue("@Code", verificationCode);
+            int rowsAffected = odjDB.DoUpdateUsingCmdObj(objCommand);
+            return rowsAffected > 0;
+        }
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
         {
