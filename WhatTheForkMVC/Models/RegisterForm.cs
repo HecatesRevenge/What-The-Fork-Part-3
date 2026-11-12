@@ -102,6 +102,19 @@ namespace WhatTheForkMVC.Models
             }
         }
 
+        public String HomeState
+        {
+            get { return homeState; }
+            set
+            {
+                if (value == null)
+                {
+                    value = "";
+                }
+                homeState = value;
+            }
+        }
+
         public String Username
         {
             get { return username; }

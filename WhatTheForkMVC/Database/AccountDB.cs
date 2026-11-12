@@ -14,7 +14,7 @@ namespace WhatTheForkMVC.Classes
     public class AccountDB
     {
         DBConnect odjDB = new DBConnect();
-        EncryptionHelper objEncrypt=new EncryptionHelper();
+        EncryptionHelper objEncrypt = new EncryptionHelper();
         public bool IsUernameTaken(String username)
         {
             SqlCommand objCommand = new SqlCommand();
@@ -131,6 +131,16 @@ namespace WhatTheForkMVC.Classes
             return ds;
         }
 
+        public int AddSecurityAnswer(int userID, int questionID, String answerHash)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddSecurityAnswer";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            objCommand.Parameters.AddWithValue("@QuestionID", questionID);
+            objCommand.Parameters.AddWithValue("@AnswerHash", answerHash);
+            return odjDB.DoUpdateUsingCmdObj(objCommand);
+        }
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
         {
