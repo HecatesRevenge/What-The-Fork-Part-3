@@ -948,6 +948,15 @@ a {
     font-weight: 600;
 }
 
+.error-message {
+    background-color: #3a1c20;
+    border: 1px solid #a33a45;
+    color: #ff5c5c;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
 @media (max-width: 576px) {
     .search-hero h1 {
         font-size: 32px;

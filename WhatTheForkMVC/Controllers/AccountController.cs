@@ -8,28 +8,29 @@ namespace WhatTheForkMVC.Controllers
     {
         AccountDB objAccountDB = new AccountDB();
         PasswordHasher objHasher = new PasswordHasher();
-        public IActionResult Login(String loggedout)
+        LoginCookie objCookie = new LoginCookie();
+        public IActionResult Login()
         {
             UserAccounts objUser = SessionUser.GetUser(HttpContext.Session);
 
-            if (loggedout == "yes")
-            {
-                ViewData["Message"] = "Logged out successfully.";
-            }
-            else if (objUser != null)
+            if (objUser != null)
             {
                 ViewData["Message"] = "You are already logged in as " + objUser.Username + ".";
-
-
             }
+
+            String savedUsername = objCookie.ReadLoginID(Request);
+            if (savedUsername != "")
+            {
+                ViewData["Username"] = savedUsername;
+                ViewData["RememberMe"] = true;
+            }
+
             return View();
-
         }
-
-
+        
         //TODO: if I have time create error checking class 
         [HttpPost]
-        public IActionResult Login(String username, String password)
+        public IActionResult Login(String username, String password, String remeberMe)
         {
             if (username == null)
             {
@@ -80,16 +81,57 @@ namespace WhatTheForkMVC.Controllers
                 return View();
             }
 
+            if (!objUser.IsVerified)
+            {
+                ViewData["Error"] = "Please verify your account before logging in. Check your email for the verification link.";
+                ViewData["Username"] = username;
+                return View();
+            }
+
+            if (remeberMe != null)
+            {
+                objCookie.SaveLoginID(Response, username);
+
+            }
+            else
+            {
+                objCookie.DeleteLoginID(Response);
+            }
+
             objUser.Password = "";
             SessionUser.SaveUser(HttpContext.Session, objUser);
 
             return RedirectToAction("Index", "Dashboard");
         }
 
+        public IActionResult DeleteCookie()
+        {
+            objCookie.DeleteLoginID(Response);
+            ViewData["Message"] = "Saved username cleared.";
+            return View("Login");
+        }
+
         public IActionResult Logout()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Logout(String forgotMe)
+        {
+
             HttpContext.Session.Clear();
-            return RedirectToAction("Login", new { loggedout = "yes" });
+
+            if (forgotMe != null)
+            {
+                objCookie.DeleteLoginID(Response);
+
+            }
+
+            ViewData["Message"] = "You have logged out successfully.";
+            return View("Login");
+
+
         }
     }
 }
