@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+}
+<div class="search-hero">
+    <p class="eyebrow">Welcome back</p>
+    <h1>Log into What the Fork</h1>
+    <p class="lead">
+        Reviewers can write and manage reviews.
+        Resturants representives can mange their resturarant.
+    </p>
+</div>
+
+<div class="container search-main">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+            <div class="account-card">
+                <h2 class="filter-title">Log In</h2>
+                <p class="filter-hint">Enter the username and password. Passwords are case senstive</p>
+
+                @if (ViewData["Message"] != null)
+                {
+                    <span class="success-message d-block"> @ViewData["Message"]</span>
+                }
+                @if (ViewData["Error"] != null)
+                {
+                    <span class="error-message d-block"> @ViewData["Error"]</span>
+                }
+
+
+
+                <form asp-controller="Account" asp-action="Login" method="post">
+                    <div class="account-field">
+                        <label Ifor="username" class="filter-label">Username</label>
+                        <input type="text" id="username" name="username" class="form-control mt-1" />
+                    </div>
+
+                    <div class="account-field">
+                        <label Ifor="password" class="filter-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control mt-1" />
+                    </div>
+
+                    <input type="submit" value="Log In" class="btn btn-wtf w-100 mt-3" />
+
+                </form>
+                <p class="account-switch">Don't have an account? <a asp-controller="Account" asp-action="Register">Register Here</a></p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

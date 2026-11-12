@@ -124,7 +124,7 @@ namespace WhatTheForkMVC.Classes
         //Dont want public method having direct access to making useraccounts
         private UserAccounts MakeUserAccount(DataRow row)
         {
-            UserAccounts objUser = new UserAccounts(); 117, 163, 99, 156, 140, 191, 38, 125, 212, 169, 164, 23, 75, 253, 226, 80assword
+            UserAccounts objUser = new UserAccounts();
 
             objUser.UserID = Convert.ToInt32(row["UserID"]);
             objUser.Username = row["Username"].ToString();
