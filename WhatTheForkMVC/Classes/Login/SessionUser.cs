@@ -18,13 +18,23 @@ namespace WhatTheForkMVC.Classes
             {
                 return null;
             }
-             
+
             UserAccounts user = new UserAccounts();
             user.UserID = (int)session.GetInt32("UserID");
             user.Username = session.GetString("Username");
             user.UserType = session.GetString("UserType");
             user.FirstName = session.GetString("FirstName");
             return user;
+        }
+
+        public static bool IsLoggedIn(ISession session)
+        {
+            if (session.GetInt32("UserID") == null)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

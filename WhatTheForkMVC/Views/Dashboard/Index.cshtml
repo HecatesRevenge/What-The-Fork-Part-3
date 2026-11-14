@@ -1,0 +1,33 @@
+﻿@model List<DashboardCard>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<div class="search-hero">
+    <div class="container">
+        <p class="eyebrow">@ViewData["Eyebrow"]</p>
+        <h1>@ViewData["Welcome"]</h1>
+        <p class="lead">@ViewData["Instructions"]</p>
+    </div>
+</div>
+
+<div class="container search-main">
+    @if (ViewData["Error"] != null)
+    {
+        <span class="error-message d-block">@ViewData["Error"]</span>
+    }
+
+    <div class="row g-4">
+        @foreach (DashboardCard card in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="dashboard-card">
+                    <p class="eyebrow">@card.Category</p>
+                    <h2>@card.Title</h2>
+                    <p class="dashboard-stat">@card.Stat</p>
+                    <p class="dashboard-text">@card.Description</p>
+                    <a class="btn btn-wtf w-100" href="@Url.Content(card.LinkURL)">@card.LinkText</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
