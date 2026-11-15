@@ -22,7 +22,12 @@ namespace WhatTheForkMVC.Controllers
         {
             UserAccounts objUser;
 
-            objUser = objAccountDB.GetUserByEmail(email);
+            try { objUser = objAccountDB.GetUserByEmail(email); }
+            catch (Exception ex)
+            {
+                ViewData["EmailMsg"] = "Something went wrong. Please try again";
+                return View();
+            }
 
             //  UserAccounts objUser = SessionUser.GetUser(HttpContext.Session);
             DataRow dr = objQuestionCheck.SelectRandomnSecurityQuestion(objUser.UserID);
