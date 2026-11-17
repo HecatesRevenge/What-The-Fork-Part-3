@@ -51,7 +51,7 @@ namespace WhatTheForkMVC.Classes.Dashboard
        
         }
 
-        public String LinkUrl
+        public String LinkURL
         {
             get { return linkURL; }
             set { linkURL = value; }

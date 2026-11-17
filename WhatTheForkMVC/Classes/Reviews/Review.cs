@@ -19,6 +19,13 @@ namespace WhatTheForkMVC.Classes.Reviews
         private int priceRating = 0;
         private byte[] reviewPhoto = null;
         private String reviewPhotoType = "";
+        private String reviewerName = "";
+        private String reviewerHome= "";
+        private String restaurantName = "";
+        private DateTime reviewDate = DateTime.Now;
+        private int helpfulCount = 0;
+        private int notHelpfulCount = 0;
+        private String responseText = "";
 
         public int ReviewID
         {
@@ -95,6 +102,43 @@ namespace WhatTheForkMVC.Classes.Reviews
         public bool HasPhoto
         {
             get { return reviewPhoto != null && reviewPhoto.Length > 0; }
+        }
+
+        public String ReviewerName
+        {
+            get { return reviewerName; }
+            set { reviewerName = value; }
+        }
+
+        public String ReviewerHome
+        {
+            get { return reviewerHome; }
+            set { reviewerHome = value; }
+        }
+        public String RestaurantName
+        {
+            get { return restaurantName; }
+            set { restaurantName = value; }
+        }
+        public DateTime ReviewDate
+        {
+            get { return reviewDate; }
+            set { reviewDate = value; }
+        }
+        public int HelpfulCount
+        {
+            get { return helpfulCount; }
+            set { helpfulCount = value; }
+        }
+        public int NotHelpfulCount
+        {
+            get { return notHelpfulCount; }
+            set { notHelpfulCount = value; }
+        }
+        public String ResponseText
+        {
+            get { return responseText; }
+            set { responseText = value; }
         }
     }
 }

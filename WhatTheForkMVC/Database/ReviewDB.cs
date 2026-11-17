@@ -75,6 +75,25 @@ namespace WhatTheForkMVC.Database
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
 
+        public List<Review> GetReviewList(int restaurantID)
+        {
+            List<Review> reviews = new List<Review>();
+            DataSet ds = GetReviews(restaurantID);
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Review objReview = new Review();
+                objReview.ReviewID = Convert.ToInt32(row["ReviewID"]);
+                objReview.RestaurantID = restaurantID;
+                objReview.ReviewTitle = row["ReviewTitle"].ToString();
+                objReview.ReviewText = row["ReviewText"].ToString();
+                objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
+                objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
+                objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
+                objReview.ReviewDate = Convert.ToDateTime(row["ReviewDate"]);
+                           }
+        }
+
         public Review GetReviewByID(int reviewID, int reviewerID)
         {
             SqlCommand objCommand = new SqlCommand();

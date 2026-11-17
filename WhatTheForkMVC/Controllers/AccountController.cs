@@ -124,8 +124,10 @@ namespace WhatTheForkMVC.Controllers
         public IActionResult Logout(String forgotMe)
         {
 
-            HttpContext.Session.Clear();
-
+            if (!SessionUser.IsLoggedIn(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Account");
+            }
             if (forgotMe != null)
             {
                 objCookie.DeleteLoginID(Response);
