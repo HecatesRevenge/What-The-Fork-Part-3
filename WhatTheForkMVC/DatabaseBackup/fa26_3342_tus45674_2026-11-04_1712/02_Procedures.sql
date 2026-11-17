@@ -375,6 +375,15 @@ AS
     WHERE Username = @Username
 GO
 
+-- SQL_STORED_PROCEDURE: [dbo].[TP_GetUserByEmail]
+CREATE PROCEDURE TP_GetUserByEmail
+    @Email varchar(50)
+AS
+    SELECT UserID, Username, Password, UserType, FirstName, LastName, Email, Phone
+    FROM TP_UserAccount
+    WHERE Email = @Email
+GO
+
 -- SQL_STORED_PROCEDURE: [dbo].[TP_GetUserByID]
 CREATE PROCEDURE TP_GetUserByID
     @UserID int
@@ -383,6 +392,8 @@ AS
     FROM TP_UserAccount
     WHERE UserID = @UserID
 GO
+
+
 
 -- SQL_STORED_PROCEDURE: [dbo].[TP_GetSocialMediaPlatforms]
 CREATE PROCEDURE TP_GetSocialMediaPlatforms
@@ -597,4 +608,3 @@ AS
     DELETE FROM TP_Reservation
     WHERE ReservationID = @ReservationID AND RestaurantID = @RestaurantID
 GO
-
