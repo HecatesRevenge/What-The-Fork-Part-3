@@ -5,7 +5,7 @@ using WhatTheForkMVC.Database;
 
 namespace WhatTheForkMVC.Controllers
 {
-    [Route("applications/[json]")]
+    [Route("applications/json")]
     [Route("api/Reviews")]
 
     public class ReviewsApiController : ControllerBase
