@@ -134,7 +134,6 @@ namespace WhatTheForkMVC.Database
                 objReview.ReviewerID = reviewerID;
                 objReview.RestaurantName = row["RestaurantName"].ToString();
                 objReview.ReviewTitle = row["ReviewTitle"].ToString();
-                objReview.ReviewText = row["ReviewText"].ToString();
                 objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
                 objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
                 objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
@@ -149,7 +148,7 @@ namespace WhatTheForkMVC.Database
                 {
                     objReview.VisitDate = Convert.ToDateTime(row["VisitDate"]);
                 }
-
+                reviews.Add(objReview);
             }
             return reviews;
         }
