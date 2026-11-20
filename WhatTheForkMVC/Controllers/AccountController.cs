@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography.X509Certificates;
 using WhatTheForkMVC.Classes;
+using WhatTheForkMVC.Classes.Emails;
 using WhatTheForkMVC.Classes.Login;
 using WhatTheForkMVC.Classes.Security;
 using WhatTheForkMVC.Models;
@@ -12,6 +13,7 @@ namespace WhatTheForkMVC.Controllers
         PasswordHasher objHasher = new PasswordHasher();
         LoginCookie objCookie = new LoginCookie();
         RegisterValidator objValidator = new RegisterValidator();
+        VerificationEmail objVerificationEmail = new VerificationEmail();
         SecurityQuestionChecks objQuestionCheck = new SecurityQuestionChecks();
         public IActionResult Login()
         {
@@ -89,6 +91,7 @@ namespace WhatTheForkMVC.Controllers
             {
                 ViewData["Error"] = "Please verify your account before logging in. Check your email for the verification link.";
                 ViewData["Username"] = username;
+                ViewData["ResendUsername"] = username;
                 return View();
             }
 
@@ -117,17 +120,18 @@ namespace WhatTheForkMVC.Controllers
 
         public IActionResult Logout()
         {
+            if (!SessionUser.IsLoggedIn(HttpContext.Session))
+            {
+                return RedirectToAction("Login", "Account");
+            }
             return View();
         }
 
         [HttpPost]
         public IActionResult Logout(String forgotMe)
         {
+            HttpContext.Session.Clear();
 
-            if (!SessionUser.IsLoggedIn(HttpContext.Session))
-            {
-                return RedirectToAction("Login", "Account");
-            }
             if (forgotMe != null)
             {
                 objCookie.DeleteLoginID(Response);
@@ -213,7 +217,7 @@ namespace WhatTheForkMVC.Controllers
                 ViewData["Questions"] = objAccountDB.GetSecurityQuestions();
                 return View(form);
             }
-
+            SendVerificationCode(objUser);
             if (form.SaveLoginID)
             {
                 objCookie.SaveLoginID(Response, objUser.Username);
@@ -222,6 +226,34 @@ namespace WhatTheForkMVC.Controllers
             SessionUser.SaveUser(HttpContext.Session, objUser);
             return RedirectToAction("Index", "Dashboard");
 
+        }
+        public IActionResult ResendVerification(String username)
+        {
+            UserAccounts objUser = null;
+
+            if (username != null)
+            {
+                objUser = objAccountDB.GetUserLogin(username);
+            }
+
+            if (objUser != null && !objUser.IsVerified)
+            {
+                SendVerificationCode(objUser);
+            }
+
+            ViewData["Message"] = "If that account still needs to be verified, a new verification email is on its way.";
+            ViewData["Username"] = username;
+            return View("Login");
+        }
+
+        private bool SendVerificationCode(UserAccounts objUser)
+        {
+            String code = VerificationCode.Generate();
+            objAccountDB.SaveVerificationCode(objUser.UserID, code);
+
+            String link = Url.Action("Verify", "Verification", new { id = objUser.UserID, code = code }, Request.Scheme);
+
+            return objVerificationEmail.SendVerificationEmail(objUser.Email, objUser.FirstName, link);
         }
     }
 }
