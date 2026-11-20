@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Classes.Dashboard
 {
     public class DashboardCard
     {
-        private String category="";
+
+        private String category = "";
         private String title = "";
         private String stat = "";
         private String description = "";
@@ -51,6 +48,7 @@ namespace WhatTheForkMVC.Classes
         {
             get { return description; }
             set { description = value; }
+       
         }
 
         public String LinkURL
@@ -58,11 +56,11 @@ namespace WhatTheForkMVC.Classes
             get { return linkURL; }
             set { linkURL = value; }
         }
-
         public String LinkText
         {
             get { return linkText; }
             set { linkText = value; }
         }
+
     }
 }

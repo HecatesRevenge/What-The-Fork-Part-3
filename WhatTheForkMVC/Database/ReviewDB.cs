@@ -75,6 +75,83 @@ namespace WhatTheForkMVC.Database
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
 
+        public List<Review> GetReviewList(int restaurantID)
+        {
+            List<Review> reviews = new List<Review>();
+            DataSet ds = GetReviews(restaurantID);
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Review objReview = new Review();
+                objReview.ReviewID = Convert.ToInt32(row["ReviewID"]);
+                objReview.RestaurantID = restaurantID;
+                objReview.ReviewTitle = row["ReviewTitle"].ToString();
+                objReview.ReviewText = row["ReviewText"].ToString();
+                objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
+                objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
+                objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
+                objReview.ReviewDate = Convert.ToDateTime(row["ReviewDate"]);
+                objReview.HelpfulCount = Convert.ToInt32(row["HelpfulCount"]);
+                objReview.NotHelpfulCount = Convert.ToInt32(row["NotHelpfulCount"]);
+                objReview.ReviewerName = row["ReviewerName"].ToString();
+                objReview.ReviewerHome = row["ReviewerHome"].ToString();
+
+                if (row["AtmosphereRating"] != DBNull.Value)
+                {
+                    objReview.AtmosphereRating = Convert.ToInt32(row["AtmosphereRating"]);
+                }
+
+                if (row["VisitDate"] != DBNull.Value)
+                {
+                    objReview.VisitDate = Convert.ToDateTime(row["VisitDate"]);
+                }
+
+                if (row["ResponseText"] != DBNull.Value)
+                {
+                    objReview.ResponseText = row["ResponseText"].ToString();
+                }
+
+                if (row["ReviewPhoto"] != DBNull.Value)
+                {
+                    objReview.ReviewPhoto = (byte[])row["ReviewPhoto"];
+                    objReview.ReviewPhotoType = row["ReviewPhotoType"].ToString();
+                }
+
+                reviews.Add(objReview);
+            }
+            return reviews;
+        }
+
+        public List<Review> GetReviewListByReviewer(int reviewerID)
+        {
+            List<Review> reviews = new List<Review>();
+            DataSet ds = GetReviewsByReviewer(reviewerID);
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Review objReview = new Review();
+                objReview.ReviewID = Convert.ToInt32(row["ReviewID"]);
+                objReview.RestaurantID = Convert.ToInt32(row["RestaurantID"]);
+                objReview.ReviewerID = reviewerID;
+                objReview.RestaurantName = row["RestaurantName"].ToString();
+                objReview.ReviewTitle = row["ReviewTitle"].ToString();
+                objReview.FoodRating = Convert.ToInt32(row["FoodRating"]);
+                objReview.ServiceRating = Convert.ToInt32(row["ServiceRating"]);
+                objReview.PriceRating = Convert.ToInt32(row["PriceRating"]);
+                objReview.ReviewDate = Convert.ToDateTime(row["ReviewDate"]);
+
+                if (row["AtmosphereRating"] != DBNull.Value)
+                {
+                    objReview.AtmosphereRating = Convert.ToInt32(row["AtmosphereRating"]);
+                }
+
+                if (row["VisitDate"] != DBNull.Value)
+                {
+                    objReview.VisitDate = Convert.ToDateTime(row["VisitDate"]);
+                }
+                reviews.Add(objReview);
+            }
+            return reviews;
+        }
         public Review GetReviewByID(int reviewID, int reviewerID)
         {
             SqlCommand objCommand = new SqlCommand();

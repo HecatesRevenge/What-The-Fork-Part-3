@@ -1,0 +1,603 @@
+{
+  "meta": {
+    "version": "1.1.0",
+    "exportedAt": "2026-11-19T23:37:21.245Z",
+    "exportedUsing": "Requestly API Client"
+  },
+  "records": [
+    {
+      "id": "30aaa7b8-a4a8-4bdb-91e3-ed313625571c",
+      "name": "What The Fork Review API Test",
+      "description": "A working collection against DummyJSON's public API. Open any request and click Send to see it run.\n\nThree sub-collections cover the API surface — **Products** (queries), **Users** (full CRUD), and **Workflow — Cart Lifecycle** (chained run via the collection runner). The companion **DummyJSON** environment provides `{{baseUrl}}` and is active by default.",
+      "type": "collection",
+      "parentId": null,
+      "deleted": false,
+      "data": {
+        "variables": {
+          "authToken": {
+            "id": "996504bc-631f-4578-ae4a-3ffd77b8be85",
+            "syncValue": "",
+            "type": "string",
+            "isEnabled": true,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "localValue": "",
+            "isPersisted": true
+          },
+          "userId": {
+            "id": "55b26259-4d02-47e2-b5f3-e5a26af3d013",
+            "syncValue": "",
+            "type": "string",
+            "isEnabled": true,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "localValue": "",
+            "isPersisted": true
+          },
+          "cartId": {
+            "id": "738879b4-afea-4ab4-a6eb-fb9f9ca51bc8",
+            "syncValue": "",
+            "type": "string",
+            "isEnabled": true,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "localValue": "",
+            "isPersisted": true
+          }
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "overriddenSecrets": [],
+        "overrideSalt": ""
+      },
+      "rank": "a0"
+    },
+    {
+      "id": "8f392cb1-712c-4bd9-8132-722fbba20d4c",
+      "name": "Users",
+      "description": "Basic CRUD on users — list, view, create, and update. No auth needed.",
+      "type": "collection",
+      "parentId": "30aaa7b8-a4a8-4bdb-91e3-ed313625571c",
+      "deleted": false,
+      "data": {
+        "auth": {
+          "type": "inherit"
+        },
+        "overriddenSecrets": [],
+        "overrideSalt": ""
+      },
+      "rank": "a0"
+    },
+    {
+      "id": "b7c4d42d-1ead-418a-ace2-158350fc2c62",
+      "name": "Products",
+      "description": "No auth needed. Browse the catalog, search by keyword, or look up a single product.",
+      "type": "collection",
+      "parentId": "30aaa7b8-a4a8-4bdb-91e3-ed313625571c",
+      "deleted": false,
+      "data": {
+        "auth": {
+          "type": "inherit"
+        },
+        "overriddenSecrets": [],
+        "overrideSalt": ""
+      },
+      "rank": "a1"
+    },
+    {
+      "id": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "name": "Workflow — Cart Lifecycle",
+      "description": "Full cart lifecycle: log in, create a cart, fetch it, update it, delete it. Login grabs a bearer token into a collection variable. The folder's auth inherits that token, so the remaining requests pick it up automatically. Cart ID flows forward the same way.",
+      "type": "collection",
+      "parentId": "30aaa7b8-a4a8-4bdb-91e3-ed313625571c",
+      "deleted": false,
+      "data": {
+        "variables": {
+          "authToken": {
+            "id": "cb53ef55-ea27-42d3-9c27-6ba4beb84a13",
+            "syncValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3NzY0MTc4MzEsImV4cCI6MTc3NjQyMTQzMX0.M2nV4sjKbPOLU7eL1YU2CajZOLg4ketVvSR4VQR2Hjk",
+            "type": "string",
+            "isEnabled": true,
+            "rank": null,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "overrideMeta": null,
+            "localValue": "",
+            "isPersisted": true
+          },
+          "userId": {
+            "id": "ae497d96-0188-4f48-aa16-ca70aa07dfb0",
+            "syncValue": "1",
+            "type": "string",
+            "isEnabled": true,
+            "rank": null,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "overrideMeta": null,
+            "localValue": "",
+            "isPersisted": true
+          },
+          "cartId": {
+            "id": "c993bd4b-6437-4a35-a165-530419700dbc",
+            "syncValue": "209",
+            "type": "string",
+            "isEnabled": true,
+            "rank": null,
+            "createdAt": "2026-11-19T20:59:21.825Z",
+            "updatedAt": "2026-11-19T20:59:21.825Z",
+            "createdBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "updatedBy": "fafd9de0-9661-4846-aeae-c6000cb21e67",
+            "valueSource": {
+              "kind": "inline"
+            },
+            "readability": "readable",
+            "overrideMeta": null,
+            "localValue": "",
+            "isPersisted": true
+          }
+        },
+        "auth": {
+          "type": "bearer_token",
+          "token": "{{authToken}}"
+        },
+        "scripts": {
+          "preRequest": "console.log(\"[Workflow] \" + rq.info.requestName + \" — iteration \" + rq.info.iteration);"
+        },
+        "overriddenSecrets": [],
+        "overrideSalt": ""
+      },
+      "rank": "a2"
+    },
+    {
+      "id": "1adfea52-498b-45ae-bf2d-fd8b97936c28",
+      "name": "Add User",
+      "type": "api",
+      "parentId": "8f392cb1-712c-4bd9-8132-722fbba20d4c",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/users/add",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "json",
+            "raw": "{\n  \"firstName\": \"Alex\",\n  \"lastName\": \"Morgan\",\n  \"age\": 28\n}",
+            "rawContentType": "application/json"
+          },
+          "contentType": "json"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"user is created with ID\", () => {\n  rq.response.to.be.success;\n  const data = rq.response.json();\n  rq.expect(data).to.have.property(\"id\");\n  rq.expect(data.firstName).to.equal(\"Alex\");\n  rq.expect(data.age).to.equal(28);\n});"
+        }
+      },
+      "rank": "a0"
+    },
+    {
+      "id": "ea32b8cb-9909-4e9b-80c8-e2c194e4de55",
+      "name": "Update User",
+      "type": "api",
+      "parentId": "8f392cb1-712c-4bd9-8132-722fbba20d4c",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/users/:id",
+          "method": "PUT",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "User ID"
+            }
+          ],
+          "body": {
+            "contentType": "json",
+            "raw": "{\n  \"lastName\": \"Smith\"\n}",
+            "rawContentType": "application/json"
+          },
+          "contentType": "json"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"user is updated\", () => {\n  rq.response.to.have.status(200);\n  rq.response.to.have.jsonBody(\"lastName\", \"Smith\");\n});"
+        }
+      },
+      "rank": "a1"
+    },
+    {
+      "id": "21cf5cc9-b144-42b0-8571-099a115a18e5",
+      "name": "List Users",
+      "type": "api",
+      "parentId": "8f392cb1-712c-4bd9-8132-722fbba20d4c",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/users?limit=5&select=firstName,lastName,email",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [
+            {
+              "id": 0,
+              "key": "limit",
+              "value": "5",
+              "isEnabled": true
+            },
+            {
+              "id": 1,
+              "key": "select",
+              "value": "firstName,lastName,email",
+              "isEnabled": true
+            }
+          ],
+          "pathVariables": [],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"returns paginated users\", () => {\n  rq.response.to.have.status(200);\n  rq.response.to.have.jsonBody(\"users\");\n  const data = rq.response.json();\n  rq.expect(data.users.length).to.equal(5);\n});"
+        }
+      },
+      "rank": "a2"
+    },
+    {
+      "id": "43f0ba32-4f2a-4961-9cc6-0aeef9752155",
+      "name": "User by ID",
+      "type": "api",
+      "parentId": "8f392cb1-712c-4bd9-8132-722fbba20d4c",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/users/:id",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "User ID"
+            }
+          ],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"returns user profile\", () => {\n  rq.response.to.be.ok;\n  const data = rq.response.json();\n  rq.expect(data).to.have.property(\"firstName\");\n  rq.expect(data).to.have.property(\"email\");\n});"
+        }
+      },
+      "rank": "a3"
+    },
+    {
+      "id": "9f6f0094-032f-4aec-ac78-ad200bfc089d",
+      "name": "Product by ID",
+      "type": "api",
+      "parentId": "b7c4d42d-1ead-418a-ace2-158350fc2c62",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/products/:id",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [
+            {
+              "key": "id",
+              "value": "1",
+              "description": "Product ID"
+            }
+          ],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"returns product details\", () => {\n  rq.response.to.have.status(200);\n  const data = rq.response.json();\n  rq.expect(data).to.have.property(\"title\");\n  rq.expect(data).to.have.property(\"price\");\n  rq.expect(data.rating).to.be.above(0);\n});"
+        }
+      },
+      "rank": "a0"
+    },
+    {
+      "id": "8d3de2b7-3953-4209-893a-622a6c4ea280",
+      "name": "Search Products",
+      "type": "api",
+      "parentId": "b7c4d42d-1ead-418a-ace2-158350fc2c62",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/products/search?q=phone",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [
+            {
+              "id": 0,
+              "key": "q",
+              "value": "phone",
+              "isEnabled": true
+            }
+          ],
+          "pathVariables": [],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"search returns results\", () => {\n  rq.response.to.be.ok;\n  const data = rq.response.json();\n  rq.expect(data.products).to.be.an(\"array\");\n  rq.expect(data.total).to.be.above(0);\n});"
+        }
+      },
+      "rank": "a1"
+    },
+    {
+      "id": "fcc5ca23-9c61-4e41-a53a-574b0b64eb7e",
+      "name": "All Products",
+      "type": "api",
+      "parentId": "b7c4d42d-1ead-418a-ace2-158350fc2c62",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/products?limit=5&select=title,price,rating",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [
+            {
+              "id": 0,
+              "key": "limit",
+              "value": "5",
+              "isEnabled": true
+            },
+            {
+              "id": 1,
+              "key": "select",
+              "value": "title,price,rating",
+              "isEnabled": true
+            }
+          ],
+          "pathVariables": [],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"returns paginated products\", () => {\n  rq.response.to.have.status(200);\n  const data = rq.response.json();\n  rq.expect(data.products).to.be.an(\"array\");\n  rq.expect(data.products.length).to.equal(5);\n  rq.expect(data).to.have.property(\"total\");\n});\n\nrq.test(\"responds within 2s\", () => {\n  rq.expect(rq.response.responseTime).to.be.below(2000);\n});"
+        }
+      },
+      "rank": "a2"
+    },
+    {
+      "id": "bd3c17dc-61e5-46e9-9abb-5bc085a19773",
+      "name": "Add Cart",
+      "type": "api",
+      "parentId": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/carts/add",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "json",
+            "raw": "{\n  \"userId\": {{userId}},\n  \"products\": [\n    { \"id\": 144, \"quantity\": 2 },\n    { \"id\": 98, \"quantity\": 1 }\n  ]\n}",
+            "rawContentType": "application/json"
+          },
+          "contentType": "json"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "const data = rq.response.json();\n\nrq.collectionVariables.set(\"cartId\", String(data.id));\n\nrq.test(\"cart created with products\", () => {\n  rq.response.to.be.success;\n  rq.expect(data.products).to.be.an(\"array\");\n  rq.expect(data.products.length).to.be.above(0);\n});"
+        }
+      },
+      "rank": "a0"
+    },
+    {
+      "id": "cdbcb492-4bb5-491d-a771-d2f87c2c1905",
+      "name": "Delete Cart",
+      "type": "api",
+      "parentId": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/carts/{{cartId}}",
+          "method": "DELETE",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"cart is deleted\", () => {\n  rq.response.to.have.status(200);\n  const data = rq.response.json();\n  rq.expect(data.isDeleted).to.equal(true);\n  rq.expect(data).to.have.property(\"deletedOn\");\n});"
+        }
+      },
+      "rank": "a1"
+    },
+    {
+      "id": "528c593b-be2c-433b-a941-b16016e9fc5b",
+      "name": "Login",
+      "type": "api",
+      "parentId": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/auth/login",
+          "method": "POST",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "json",
+            "raw": "{\n  \"username\": \"emilys\",\n  \"password\": \"emilyspass\"\n}",
+            "rawContentType": "application/json"
+          },
+          "contentType": "json"
+        },
+        "scripts": {
+          "postResponse": "const data = rq.response.json();\n\nrq.collectionVariables.set(\"authToken\", data.accessToken);\nrq.collectionVariables.set(\"userId\", String(data.id));\n\nrq.test(\"authenticated successfully\", () => {\n  rq.response.to.have.status(200);\n  rq.expect(data.accessToken).to.be.a(\"string\");\n  rq.expect(data.refreshToken).to.be.a(\"string\");\n});"
+        }
+      },
+      "rank": "a2"
+    },
+    {
+      "id": "6e2dd808-1e89-4d8f-9593-a998e8c7238a",
+      "name": "Update Cart",
+      "type": "api",
+      "parentId": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/carts/{{cartId}}",
+          "method": "PUT",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "json",
+            "raw": "{\n  \"merge\": true,\n  \"products\": [\n    { \"id\": 1, \"quantity\": 3 }\n  ]\n}",
+            "rawContentType": "application/json"
+          },
+          "contentType": "json"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"cart is updated\", () => {\n  rq.response.to.be.ok;\n  rq.response.to.have.header(\"content-type\");\n  const data = rq.response.json();\n  rq.expect(data).to.have.property(\"products\");\n  rq.expect(data).to.have.property(\"totalProducts\");\n});"
+        }
+      },
+      "rank": "a3"
+    },
+    {
+      "id": "9ab4cb4f-a39d-49cb-9bf9-04f3e144e49b",
+      "name": "Get Cart",
+      "type": "api",
+      "parentId": "039f6b67-fe58-4787-b06b-5ffeb8c396bb",
+      "deleted": false,
+      "data": {
+        "type": "http",
+        "request": {
+          "overriddenSecrets": [],
+          "overrideSalt": "",
+          "url": "{{baseUrl}}/carts/{{cartId}}",
+          "method": "GET",
+          "headers": [],
+          "queryParams": [],
+          "pathVariables": [],
+          "body": {
+            "contentType": "none"
+          },
+          "contentType": "none"
+        },
+        "auth": {
+          "type": "inherit"
+        },
+        "scripts": {
+          "postResponse": "rq.test(\"returns cart details\", () => {\n  rq.response.to.have.status(200);\n  rq.response.to.have.jsonBody(\"products\");\n  const data = rq.response.json();\n  rq.expect(data.totalProducts).to.be.above(0);\n});"
+        }
+      },
+      "rank": "a4"
+    }
+  ],
+  "environments": [],
+  "packages": []
+}
