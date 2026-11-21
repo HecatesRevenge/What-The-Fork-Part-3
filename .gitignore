@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/WhatTheForkMVC/Views/Restaurant/Search.cshtml
+/WhatTheForkMVC/Controllers/RestaurantController.cs
+/WhatTheForkMVC/Classes/Restaurant/RestaurantSearchResult.cs
+/WhatTheForkMVC/Classes/Restaurant/RestaurantLookup.cs
+/WhatTheForkMVC/Database/RestaurantDB.cs
+/WhatTheForkMVC/Views/Restaurant/Search.cshtml
+/WhatTheForkMVC/Views/Restaurant/Search.cshtml
+/WhatTheForkMVC/Database/RestaurantDB.cs
