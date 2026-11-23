@@ -1,0 +1,5 @@
+-Login page title and welcome back all snapp to left with no spacing. 
+-Find new better looking font
+-Foot needs to snap to buttom
+-Header should have title snap to left side
+- Better snapping menu bar
