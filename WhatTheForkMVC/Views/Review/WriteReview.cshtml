@@ -1,0 +1,136 @@
+﻿@using WhatTheForkMVC.Classes
+@using WhatTheForkMVC.Classes.Reviews;
+@model Review
+@{
+    ViewData["Title"] = "Write a Review";
+    int[] ratings = { 1, 2, 3, 4, 5 };
+    String[] priceLevels = { "$ (inexpensive)", "$$", "$$$", "$$$$", "$$$$$ (very expensive)" };
+}
+<div class="search-hero">
+    <div class="container">
+        <p class="eyebrow">@ViewData["Eyebrow"]</p>
+        <h1>@(Model.RestaurantName == null || Model.RestaurantName == "" ? "Share your visit" : Model.RestaurantName)</h1>
+        <p class="lead">Rate the food, service and atmosphere from 1 to 5, choose the price level, and tell other diners about your experience.</p>
+    </div>
+</div>
+
+<div class="container search-main">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+
+            @if (ViewData["MessageTitle"] != null)
+            {
+                <div class="account-card text-center">
+                    <h2 class="filter-title">@ViewData["MessageTitle"]</h2>
+                    <p class="filter-hint">@ViewData["MessageText"]</p>
+                    <a class="btn btn-wtf" href="@Url.Content(ViewData["MessageLink"].ToString())">@ViewData["MessageLinkText"]</a>
+                </div>
+            }
+            else
+            {
+                <div class="account-card">
+                    <h2 class="filter-title">@ViewData["FormTitle"]</h2>
+                    <p class="filter-hint">Fill in every part unless it says (optional), then click the button at the bottom.</p>
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <span class="validation-summary d-block">@Html.Raw(ViewData["Error"])</span>
+                    }
+
+                    <form method="post" asp-controller="Review" asp-action="WriteReview" enctype="multipart/form-data">
+                        <input type="hidden" name="reviewID" value="@Model.ReviewID" />
+                        <input type="hidden" name="restaurantID" value="@Model.RestaurantID" />
+                        <input type="hidden" name="restaurantName" value="@Model.RestaurantName" />
+
+                        <div class="row">
+                            <div class="col-md-6 account-field">
+                                <span class="filter-label">Food</span>
+                                <div class="rating-choice">
+                                    @foreach (int rating in ratings)
+                                    {
+                                        <input type="radio" id="food@(rating)" name="foodRating" value="@rating" checked="@(Model.FoodRating == rating)" />
+                                        <label for="food@(rating)">@rating</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6 account-field">
+                                <span class="filter-label">Service</span>
+                                <div class="rating-choice">
+                                    @foreach (int rating in ratings)
+                                    {
+                                        <input type="radio" id="service@(rating)" name="serviceRating" value="@rating" checked="@(Model.ServiceRating == rating)" />
+                                        <label for="service@(rating)">@rating</label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 account-field">
+                                <span class="filter-label">Atmosphere</span>
+                                <div class="rating-choice">
+                                    @foreach (int rating in ratings)
+                                    {
+                                        <input type="radio" id="atmosphere@(rating)" name="atmosphereRating" value="@rating" checked="@(Model.AtmosphereRating == rating)" />
+                                        <label for="atmosphere@(rating)">@rating</label>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6 account-field">
+                                <label for="priceRating" class="filter-label">Price level</label>
+                                <select id="priceRating" name="priceRating" class="form-select mt-1">
+                                    <option value="0">Choose a price level</option>
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <option value="@i" selected="@(Model.PriceRating == i)">@priceLevels[i - 1]</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <p class="filter-hint">For food, service and atmosphere, 1 is poor and 5 is excellent. The price level isn't part of the overall score.</p>
+
+                        <div class="row">
+                            <div class="col-md-6 account-field">
+                                <label for="visitDate" class="filter-label">Date of your visit</label>
+                                <input type="date" id="visitDate" name="visitDate" class="form-control mt-1" value="@ViewData["VisitDate"]" />
+                            </div>
+                            <div class="col-md-6 account-field">
+                                <label for="visitTime" class="filter-label">Time of your visit</label>
+                                <input type="time" id="visitTime" name="visitTime" class="form-control mt-1" value="@ViewData["VisitTime"]" />
+                            </div>
+                        </div>
+
+                        <div class="account-field">
+                            <label for="title" class="filter-label">Title</label>
+                            <input type="text" id="title" name="title" class="form-control mt-1" maxlength="100" value="@Model.ReviewTitle" />
+                            <p class="filter-hint mt-1 mb-0">Sum up your visit in a few words.</p>
+                        </div>
+
+                        <div class="account-field">
+                            <label for="text" class="filter-label">Your review</label>
+                            <textarea id="text" name="text" class="form-control mt-1" rows="7">@Model.ReviewText</textarea>
+                            <p class="filter-hint mt-1 mb-0">What did you order, and how was it?</p>
+                        </div>
+
+                        <div class="account-field">
+                            <label for="photo" class="filter-label">Photo (optional)</label>
+                            @if (Model.HasPhoto)
+                            {
+                                <div class="review-photo-current">
+                                    <img src="data:@Model.ReviewPhotoType;base64,@Convert.ToBase64String(Model.ReviewPhoto)" class="review-photo" alt="Your current photo" />
+                                    <label class="account-type"><input type="checkbox" name="removePhoto" value="yes" /> Remove this photo</label>
+                                </div>
+                            }
+                            <input type="file" id="photo" name="photo" class="form-control mt-1" accept=".jpg,.jpeg,.gif,.png" />
+                            <p class="filter-hint mt-1 mb-0">A .jpg, .gif or .png file up to 1 MB. Choosing a new photo replaces the current one.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-wtf w-100">@ViewData["ButtonText"]</button>
+
+                        <p class="account-switch"><a href="@Url.Content(ViewData["CancelUrl"].ToString())">Cancel</a></p>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>
