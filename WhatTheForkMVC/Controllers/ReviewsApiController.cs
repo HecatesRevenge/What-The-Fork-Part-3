@@ -98,7 +98,10 @@ namespace WhatTheForkMVC.Controllers
             {
                 return false;
             }
-            if (objReviewDB.AddReview(review) > 0)
+
+            review.ReviewID = id;
+
+            if (objReviewDB.UpdateReview(review) > 0)
             {
                 return true;
             }

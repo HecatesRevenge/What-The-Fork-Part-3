@@ -71,8 +71,8 @@ namespace WhatTheForkMVC.Controllers
             try
             {
                 int reviewerID = objReviewDB.GetReviewerID(objUser.UserID);
-                ReviewsApiController objApi = new ReviewsApiController();
-                if (objApi.DeleteReview(reviewID, reviewerID))
+                ReviewApiClient objReviewApi = new ReviewApiClient(Request);
+                if (objReviewApi.DeleteReview(reviewID, reviewerID))
                 {
                     ViewData["Message"] = "Your review was deleted.";
                 }
@@ -253,6 +253,22 @@ namespace WhatTheForkMVC.Controllers
             return RedirectToAction("MyReviews");
         }
 
+        [HttpPost]
+        public IActionResult Vote(int reviewID, int restaurantID, String vote)
+        {
+            String voteKey = "ReviewVote" + reviewID;
+
+            if (HttpContext.Session.GetString(voteKey) == null)
+            {
+                if (objReviewDB.AddReviewVote(reviewID, vote == "Helpful") == 1)
+                {
+                    HttpContext.Session.SetString(voteKey, "Thanks for your feedback!");
+                }
+            }
+
+            return Redirect("~/Restaurant/Profile/" + restaurantID + "#review" + reviewID);
+        }
+
         private IActionResult LoadRestaurant(int restaurantID)
         {
             DataSet dsRestaurant = objRestaurantDB.GetRestaurant(restaurantID);
@@ -330,8 +346,8 @@ namespace WhatTheForkMVC.Controllers
 
             try
             {
-                ReviewsApiController objApi = new ReviewsApiController();
-                reviews = objApi.GetReviewsByUser(objUser.UserID);
+                ReviewApiClient objReviewApi = new ReviewApiClient(Request);
+                reviews = objReviewApi.GetReviewsForUser(objUser.UserID);
 
                 int count = reviews.Count;
 

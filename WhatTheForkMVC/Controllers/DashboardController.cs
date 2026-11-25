@@ -3,6 +3,7 @@ using System.Data;
 using WhatTheForkMVC.Classes;
 using WhatTheForkMVC.Classes.Dashboard;
 using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Restaurant;
 using WhatTheForkMVC.Classes.Reviews;
 using WhatTheForkMVC.Database;
 
@@ -13,6 +14,7 @@ namespace WhatTheForkMVC.Controllers
         ReviewDB objReviewDB = new ReviewDB();
         ReservationDB objReservDB = new ReservationDB();
         RestaurantDB objRestaurant = new RestaurantDB();
+        SearchSerializer objSerializer = new SearchSerializer();
 
         public IActionResult Index()
         {
@@ -87,6 +89,29 @@ namespace WhatTheForkMVC.Controllers
             lstCards.Add(new DashboardCard("Share Your Visit", "Write Review", "Food, Service, Atmostpher, Price",
             "Search for restaurants, click on profile, select Write a Review",
             "~/Restaurant/Search", "Search Restaurants to Write a Review"));
+
+            AddLastSearchCard(user, lstCards);
+        }
+
+        private void AddLastSearchCard(UserAccounts user, List<DashboardCard> lstCards)
+        {
+            try
+            {
+                Byte[] searchData = objRestaurant.GetSavedSearch(user.UserID);
+                if (searchData == null)
+                {
+                    return;
+                }
+
+                SearchCriteria objCriteria = objSerializer.Deserialize(searchData);
+
+                lstCards.Add(new DashboardCard("Pick up where you left off", "Your Last Search", objCriteria.Description,
+                    "Saved " + objCriteria.SavedDate.ToString("MMM d, yyyy 'at' h:mm tt") + ". Run it again to see what's new.",
+                    "~/Restaurant/LastSearch", "Run it again"));
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void AddRepresentativeCards(UserAccounts user, List<DashboardCard> lstCards)
@@ -147,25 +172,25 @@ namespace WhatTheForkMVC.Controllers
             {
                 lstCards.Add(new DashboardCard("Get started", "Add Your Restaurant", "No Restaurant",
                     "Add your restaurant's details, hours, social media links and photos.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
 
                 lstCards.Add(new DashboardCard("Bookings", "Reservations", "No Restaurant",
                     "Once a restaurant is listed, diners can book a table and you can confirm reservations here.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
 
                 lstCards.Add(new DashboardCard("Feedback", "Reviews to Respond To", "No Restaurant",
                     "Once your restaurant is listed, you can reply to  reviews.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
                 return;
             }
 
             lstCards.Add(new DashboardCard("Your listing", "My Restaurant", restaurantName,
                "Update your restaurant's details, hours, social links and photos.",
-               "~/Restaurant/Manage", "Edit my restaurant"));
+               "~/Restaurant/ManageReservation", "Edit my restaurant"));
 
             lstCards.Add(new DashboardCard("Bookings", "Reservations", pendingCount + " Confirmation Waiting",
                 upcomingCount + " total upcoming. Customer gets email when you confirm, change, or cancel a reservation.",
-                "~/Reservation/Manage", "Manage reservations"));
+                "~/Reservation/ManageReservation", "Manage reservations"));
             String reviewStat = "";
             if (unanswerCount == 1)
             {

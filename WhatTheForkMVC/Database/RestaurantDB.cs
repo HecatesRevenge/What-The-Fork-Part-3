@@ -37,6 +37,35 @@ namespace WhatTheForkMVC.Database
             return odjDB.GetDataSetUsingCmdObj(objCommand);
         }
 
+        public int SaveSearch(int userID, Byte[] searchData)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_SaveSearch";
+
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            objCommand.Parameters.AddWithValue("@SearchData", searchData);
+
+            return odjDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public Byte[] GetSavedSearch(int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetSavedSearch";
+
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+
+            DataSet ds = odjDB.GetDataSetUsingCmdObj(objCommand);
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                return null;
+            }
+
+            return (Byte[])ds.Tables[0].Rows[0]["SearchData"];
+        }
+
         public DataSet SearchRestraurants(SearchCriteria criteria)
         {
 

@@ -10,7 +10,7 @@ namespace WhatTheForkMVC.Classes.Reviews
 
         public ReviewApiClient(HttpRequest request)
         {
-            ApiUrl = request.Scheme + "://" + request.Host.Value + "/api/reviews";
+            ApiUrl = request.Scheme + "://" + request.Host.Value + "/api/reviews/";
             jsonOptions.PropertyNameCaseInsensitive = true;
         }
 
@@ -33,7 +33,7 @@ namespace WhatTheForkMVC.Classes.Reviews
         //Single review for a restaurant by a specific user
         public Review GetReview (int reviewID, int reviewerID) {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response=client.GetAsync(ApiUrl + "/" + reviewID + "/" + reviewerID).Result;
+            HttpResponseMessage response=client.GetAsync(ApiUrl  + reviewID + "/" + reviewerID).Result;
 
             if (response.StatusCode == HttpStatusCode.OK || response.IsSuccessStatusCode)
             {

@@ -344,7 +344,7 @@ CREATE PROCEDURE TP_AddUserAccount
     @UserType varchar(20),
     @FirstName varchar(50),
     @LastName varchar(50),
-    @Email varchar(100),
+    @Email varchar(200),
     @Phone varchar(20)
 AS
     INSERT INTO TP_UserAccount (Username, Password, UserType, FirstName, LastName, Email, Phone)
@@ -598,3 +598,26 @@ AS
     WHERE ReservationID = @ReservationID AND RestaurantID = @RestaurantID
 GO
 
+
+-- SQL_STORED_PROCEDURE: [dbo].[TP_SaveSearch]
+CREATE PROCEDURE TP_SaveSearch
+    @UserID int,
+    @SearchData varbinary(max)
+AS
+    IF EXISTS (SELECT 1 FROM TP_SavedSearch WHERE UserID = @UserID)
+        UPDATE TP_SavedSearch
+        SET SearchData = @SearchData, SavedDate = GETDATE()
+        WHERE UserID = @UserID
+    ELSE
+        INSERT INTO TP_SavedSearch (UserID, SearchData, SavedDate)
+        VALUES (@UserID, @SearchData, GETDATE())
+GO
+
+-- SQL_STORED_PROCEDURE: [dbo].[TP_GetSavedSearch]
+CREATE PROCEDURE TP_GetSavedSearch
+    @UserID int
+AS
+    SELECT SearchData, SavedDate
+    FROM TP_SavedSearch
+    WHERE UserID = @UserID
+GO

@@ -79,7 +79,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "TP_TP_UpdateReservation";
+            odjCommand.CommandText = "TP_UpdateReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservation.ReservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", reservation.RestaurantID);
@@ -103,7 +103,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "TP_TP_ConfirmReservation";
+            odjCommand.CommandText = "TP_ConfirmReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
@@ -115,7 +115,7 @@ namespace WhatTheForkMVC.Database
         {
             SqlCommand odjCommand = new SqlCommand();
             odjCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            odjCommand.CommandText = "TP_TP_DeleteReservation";
+            odjCommand.CommandText = "TP_DeleteReservation";
 
             odjCommand.Parameters.AddWithValue("@ReservationID", reservationID);
             odjCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
