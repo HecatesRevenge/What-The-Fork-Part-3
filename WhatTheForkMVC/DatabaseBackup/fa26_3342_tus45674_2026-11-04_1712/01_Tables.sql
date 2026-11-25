@@ -212,3 +212,13 @@ GO
 
 ALTER TABLE [dbo].[TP_SavedSearch] ADD CONSTRAINT [TP_FK_SavedSearch_UserAccount] FOREIGN KEY ([UserID]) REFERENCES [dbo].[TP_UserAccount] ([UserID]);
 GO
+
+CREATE TABLE TP_SearchLog (
+    SearchLogID int IDENTITY(1,1) PRIMARY KEY,
+    UserID int NOT NULL REFERENCES TP_UserAccount(UserID),
+    CuisineList varchar(500) NOT NULL,
+    City varchar(60) NOT NULL,
+    State char(2) NOT NULL,
+    SearchDate datetime NOT NULL DEFAULT GETDATE()
+);
+GO
