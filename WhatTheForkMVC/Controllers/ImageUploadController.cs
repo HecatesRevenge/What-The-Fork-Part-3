@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using Microsoft.Web.Helpers;
-using Syncfusion.EJ2.FileManager.Base;
 using System.Data;
 using System.Data.Common;
 using WhatTheForkMVC.Classes;

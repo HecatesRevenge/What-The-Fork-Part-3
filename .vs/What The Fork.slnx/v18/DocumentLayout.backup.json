@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\controllers\\getinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\controllers\\getinfocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\views\\review\\writereview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\views\\review\\writereview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\views\\restaurant\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\views\\restaurant\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\restaurant\\searchserializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\views\\reservation\\makereservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\views\\reservation\\makereservation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\views\\restaurant\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\views\\restaurant\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\reservationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -95,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\classes\\login\\sessionuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\classes\\login\\sessionuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -121,10 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|solutionrelative:whattheforkmvc\\database\\accountdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E0D3160-FCE5-BCAB-64E4-E49594DC4A31}|WhatTheForkMVC\\WhatTheForkMVC.csproj|c:\\users\\mel\\documents\\github\\what the fork 2\\what-the-fork-part-3\\whattheforkmvc\\models\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -184,7 +192,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -204,33 +212,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EncryptionHelper.cs",
-              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
-              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
-              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
-              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "GetInfoController.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\GetInfoController.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\GetInfoController.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\GetInfoController.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Controllers\\GetInfoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T20:48:26.642Z",
+              "WhenOpened": "2026-11-25T18:49:20.894Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ManageReservation.cshtml",
-              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
-              "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
-              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
-              "RelativeToolTip": "WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAD4AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-24T20:38:13.569Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "WriteReview.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Review\\WriteReview.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Review\\WriteReview.cshtml",
@@ -244,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SearchSerializer.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Restaurant\\SearchSerializer.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Restaurant\\SearchSerializer.cs",
@@ -253,12 +249,11 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwA8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-24T20:58:10.562Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ReviewDB.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReviewDB.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\ReviewDB.cs",
@@ -271,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\ReviewController.cs",
@@ -284,7 +279,87 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\Connection.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T01:10:49.75Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountDB.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\AccountDB.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs*",
+              "RelativeToolTip": "WhatTheForkMVC\\Database\\AccountDB.cs*",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAMwNIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-08T20:16:52.371Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\ValuesController.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\ValuesController.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\ValuesController.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Controllers\\ValuesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-25T18:44:24.353Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
+              "RelativeToolTip": "WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-24T19:55:32.507Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "ManageReservation.cshtml",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
+              "RelativeToolTip": "WhatTheForkMVC\\Views\\Reservation\\ManageReservation.cshtml",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAD4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-24T20:38:13.569Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EncryptionHelper.cs",
+              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
+              "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
+              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
+              "RelativeToolTip": "WhatTheForkMVC\\Classes\\Security\\EncryptionHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-24T20:48:26.642Z",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "ReservationDB.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\ReservationDB.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\ReservationDB.cs",
@@ -297,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\appsettings.json",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\appsettings.json",
@@ -310,20 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
-              "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
-              "RelativeToolTip": "WhatTheForkMVC\\Views\\Restaurant\\Profile.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-24T19:55:32.507Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\ReservationController.cs",
@@ -336,7 +398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "MakeReservation.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Reservation\\MakeReservation.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Reservation\\MakeReservation.cshtml",
@@ -349,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "DashboardController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\DashboardController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\DashboardController.cs",
@@ -362,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "RestaurantController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\RestaurantController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\RestaurantController.cs",
@@ -375,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "_ReviewList.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Shared\\_ReviewList.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Shared\\_ReviewList.cshtml",
@@ -388,7 +450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "ReviewsApiController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\ReviewsApiController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\ReviewsApiController.cs",
@@ -401,7 +463,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Verification.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\Verification.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\Verification.cs",
@@ -414,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "ReviewApiClient.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Reviews\\ReviewApiClient.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Reviews\\ReviewApiClient.cs",
@@ -427,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "MyReviews.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Review\\MyReviews.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Review\\MyReviews.cshtml",
@@ -440,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "Search.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Restaurant\\Search.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Restaurant\\Search.cshtml",
@@ -453,7 +515,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Program.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Program.cs",
@@ -466,7 +528,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Controllers\\AccountController.cs",
@@ -479,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "Review.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Reviews\\Review.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Reviews\\Review.cs",
@@ -492,7 +554,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "RestaurantDB.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\RestaurantDB.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\RestaurantDB.cs",
@@ -505,20 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Connection.cs",
-              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
-              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\Connection.cs",
-              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\Connection.cs",
-              "RelativeToolTip": "WhatTheForkMVC\\Database\\Connection.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAAAUwKYAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T01:10:49.75Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "SessionUser.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Login\\SessionUser.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Login\\SessionUser.cs",
@@ -531,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "DashboardCard.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Dashboard\\DashboardCard.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Dashboard\\DashboardCard.cs",
@@ -544,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 32,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\_ViewImports.cshtml",
@@ -557,7 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 29,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Dashboard\\Index.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Dashboard\\Index.cshtml",
@@ -570,7 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 31,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Account\\Login.cshtml",
@@ -583,7 +632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 30,
               "Title": "Verify.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Verification\\Verify.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Verification\\Verify.cshtml",
@@ -596,20 +645,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "AccountDB.cs",
-              "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs",
-              "RelativeDocumentMoniker": "WhatTheForkMVC\\Database\\AccountDB.cs",
-              "ToolTip": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Database\\AccountDB.cs",
-              "RelativeToolTip": "WhatTheForkMVC\\Database\\AccountDB.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAIwLUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-08T20:16:52.371Z",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "VerificationCode.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email\\VerificationCode.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Email\\VerificationCode.cs",
@@ -622,7 +658,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "VerificationEmail.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email\\VerificationEmail.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Email\\VerificationEmail.cs",
@@ -635,7 +671,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "Email.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email\\Email.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Email\\Email.cs",
@@ -648,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "RegisterForm.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Models\\RegisterForm.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Models\\RegisterForm.cs",
@@ -661,7 +697,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "Logout.cshtml",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Views\\Account\\Logout.cshtml",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Views\\Account\\Logout.cshtml",
@@ -674,7 +710,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "theme.css",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Styling\\theme.css",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Styling\\theme.css",
@@ -687,7 +723,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "LoginCookie.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\LoginCookie.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\LoginCookie.cs",
@@ -700,7 +736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "UserAccounts.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\UserAccounts.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\UserAccounts.cs",
@@ -713,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "SecurityQuestionChecks.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\SecurityQuestionChecks.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\SecurityQuestionChecks.cs",
@@ -726,7 +762,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "dbo.Reservation.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/127.0.0.1_5555/fa26_3342_tus45674/tus45674/SqlTable/dbo.Reservation.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/127.0.0.1_5555/fa26_3342_tus45674/tus45674/SqlTable/dbo.Reservation.sql",
@@ -736,7 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "EncryptionHelper.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\EncryptionHelper.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\EncryptionHelper.cs",
@@ -749,7 +785,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "dbo.Restaurants.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/127.0.0.1_5555/fa26_3342_tus45674/tus45674/SqlTable/dbo.Restaurants.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/127.0.0.1_5555/fa26_3342_tus45674/tus45674/SqlTable/dbo.Restaurants.sql",
@@ -759,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "Email.cs",
               "DocumentMoniker": "C:\\Users\\mel\\Documents\\GitHub\\What The Fork 2\\What-The-Fork-Part-3\\WhatTheForkMVC\\Classes\\Email.cs",
               "RelativeDocumentMoniker": "WhatTheForkMVC\\Classes\\Email.cs",

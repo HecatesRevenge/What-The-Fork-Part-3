@@ -207,5 +207,11 @@ namespace WhatTheForkMVC.Classes
 
             return (Byte[])ds.Tables[0].Rows[0]["SearchData"];
         }
+
+        public UserAccounts GetUserByEmail(string email){
+            UserAccounts objUser = null;
+            return objUser;
+
+        }
     }
 }

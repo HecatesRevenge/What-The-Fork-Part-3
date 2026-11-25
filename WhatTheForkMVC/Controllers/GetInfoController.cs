@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 using System.Data;
 using WhatTheForkMVC.Classes;
 using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Emails;
 
 namespace WhatTheForkMVC.Controllers
 {

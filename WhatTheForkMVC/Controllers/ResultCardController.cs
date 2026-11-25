@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Security.Cryptography.X509Certificates;
-using System.Web.Helpers;
-using System.Web.WebPages.Html;
 using System.Xml.Linq;
 using WhatTheForkMVC.Classes;
 using WhatTheForkMVC.Classes.Login;
@@ -25,7 +23,7 @@ namespace WhatTheForkMVC.Controllers
         DBConnect objDB = new DBConnect();
         Restaurant newrest = new Restaurant();
 
-        public IActionResult Submit(int restaurant, WebImage logo)
+        public IActionResult Submit(int restaurant, IFormFile logo)
         {
 
             DataSet dsRate= restFunctions.GetRatingCounts(restaurant);

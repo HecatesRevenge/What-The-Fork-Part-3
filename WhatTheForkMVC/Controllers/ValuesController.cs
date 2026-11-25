@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Runtime.Serialization.Formatters.Binary;
 using WhatTheForkMVC.Classes;
+using WhatTheForkMVC.Classes.Restaurant;
 using WhatTheForkMVC.Database;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
