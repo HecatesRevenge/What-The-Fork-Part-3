@@ -31,7 +31,12 @@
                 <div class="account-card">
                     <h2 class="filter-title">@ViewData["FormTitle"]</h2>
                     <p class="filter-hint">Fill in every part unless it says (optional), then click the button at the bottom.</p>
-
+                    @if (Model.RestaurantID > 0)
+                    {
+                        <p class="text-end mb-3">
+                            <a class="btn btn-outline-light btn-sm" asp-controller="Restaurant" asp-action="Profile" asp-route-id="@Model.RestaurantID">View restaurant</a>
+                        </p>
+                    }
                     @if (ViewData["Error"] != null)
                     {
                         <span class="validation-summary d-block">@Html.Raw(ViewData["Error"])</span>
