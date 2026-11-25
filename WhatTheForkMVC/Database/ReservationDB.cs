@@ -123,5 +123,23 @@ namespace WhatTheForkMVC.Database
             return odjDB.DoUpdateUsingCmdObj(odjCommand);
         }
 
+        public DataSet GetRestaurant(int restaurantID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRestaurantByID";
+            objCommand.Parameters.AddWithValue("@RestaurantID", restaurantID);
+            return odjDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
+        public DataSet GetRestaurantByRep(int repUserID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRestaurantByRep";
+            objCommand.Parameters.AddWithValue("@RepUserID", repUserID);
+            return odjDB.GetDataSetUsingCmdObj(objCommand);
+        }
+
     }
 }

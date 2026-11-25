@@ -9,7 +9,6 @@ namespace WhatTheForkMVC.Controllers
 {
     public class ReservationController : Controller
     {
-        RestaurantDB objRestaurantDB = new RestaurantDB();
         ReservationDB objReservationDB = new ReservationDB();
         AccountDB objAccountDB = new AccountDB();
         ReservationValidator objValidator = new ReservationValidator();
@@ -347,7 +346,7 @@ namespace WhatTheForkMVC.Controllers
         {
             try
             {
-                DataSet dsRestaurant = objRestaurantDB.GetRestaurant(restaurantID);
+                DataSet dsRestaurant = objReservationDB.GetRestaurant(restaurantID);
                 if (dsRestaurant.Tables[0].Rows.Count == 0)
                 {
                     ShowMessage("Restaurant not found",
@@ -452,7 +451,7 @@ namespace WhatTheForkMVC.Controllers
 
             try
             {
-                DataSet dsRestaurant = objRestaurantDB.GetResturantByRep(objUser.UserID);
+                DataSet dsRestaurant = objReservationDB.GetRestaurantByRep(objUser.UserID);
 
                 if (dsRestaurant.Tables[0].Rows.Count == 0)
                 {
