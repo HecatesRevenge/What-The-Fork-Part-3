@@ -22,5 +22,14 @@ namespace WhatTheForkMVC.Database
             objCommand.Parameters.AddWithValue("@MaxPrice", criteria.MaxPrice);
             return odjDB.DoUpdateUsingCmdObj(objCommand);
         }
+
+        public DataSet GetRecentSearches(int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_GetRecentSearches";
+            objCommand.Parameters.AddWithValue("@UserID", userID);
+            return odjDB.GetDataSetUsingCmdObj(objCommand);
+        }
     }
 }
