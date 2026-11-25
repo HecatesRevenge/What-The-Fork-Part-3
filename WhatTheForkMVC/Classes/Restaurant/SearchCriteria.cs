@@ -11,6 +11,8 @@ namespace WhatTheForkMVC.Classes.Restaurant
         private String cuisineList = "";
         private String city = "";
         private String state = "";
+        private String description = "";
+        private DateTime savedDate;
 
         public String CuisineList
         {
@@ -28,6 +30,18 @@ namespace WhatTheForkMVC.Classes.Restaurant
         {
             get { return state; }
             set { state = value; }
+        }
+
+        public String Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+        public DateTime SavedDate
+        {
+            get { return savedDate; }
+            set { savedDate = value; }
         }
 
         public bool IsAllLocations

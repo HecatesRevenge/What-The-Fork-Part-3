@@ -1,0 +1,192 @@
+﻿@using System.Data
+@using WhatTheForkMVC.Classes
+@using WhatTheForkMVC.Classes.Reservation
+@model DataTable
+@{
+    ViewData["Title"] = "Manage Reservations";
+    Reservation editRes = (Reservation)ViewData["EditReservation"];
+}
+<div class="search-hero">
+    <div class="container">
+        <p class="eyebrow">Representative dashboard</p>
+        <h1>Manage Reservations</h1>
+        <p class="lead">Confirm, change or cancel your restaurant's reservations. The customer will get an email each time.</p>
+    </div>
+</div>
+ 
+<div class="container search-main">
+ 
+    @if (ViewData["MessageTitle"] != null)
+    {
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                <div class="account-card text-center">
+                    <h2 class="filter-title">@ViewData["MessageTitle"]</h2>
+                    <p class="filter-hint">@ViewData["MessageText"]</p>
+                    <a class="btn btn-wtf" href="@Url.Content(ViewData["MessageLink"].ToString())">@ViewData["MessageLinkText"]</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        @if (ViewData["Message"] != null)
+        {
+            <span class="success-message d-block">@ViewData["Message"]</span>
+        }
+        @if (ViewData["EmailNote"] != null)
+        {
+            <span class="email-note d-block">@ViewData["EmailNote"]</span>
+        }
+        @if (ViewData["Error"] != null)
+        {
+            <span class="validation-summary d-block">@ViewData["Error"]</span>
+        }
+ 
+        @if (ViewData["ConfirmDelete"] != null)
+        {
+            <div class="account-card confirm-card">
+                <p>@ViewData["ConfirmDelete"]</p>
+                <form method="post" asp-controller="Reservation" asp-action="DeleteReservation">
+                    <input type="hidden" name="reservationID" value="@ViewData["DeleteReservationID"]" />
+                    <input type="hidden" name="filter" value="@ViewData["Filter"]" />
+                    <button type="submit" class="btn btn-wtf">Yes, cancel it</button>
+                    <a asp-controller="Reservation" asp-action="ManageReservation" asp-route-filter="@ViewData["Filter"]" class="btn btn-outline-light">No, keep it</a>
+                </form>
+            </div>
+        }
+ 
+        @if (editRes != null)
+        {
+            <div class="account-card reservation-edit">
+                <h2 class="filter-title">@ViewData["EditTitle"]</h2>
+                <p class="filter-hint">Edit anything below and click Save changes. The customer gets an email with the new details.</p>
+ 
+                @if (ViewData["EditError"] != null)
+                {
+                    <span class="validation-summary d-block">@Html.Raw(ViewData["EditError"])</span>
+                }
+ 
+                <form method="post" asp-controller="Reservation" asp-action="EditReservation">
+                    <input type="hidden" name="reservationID" value="@editRes.ReservationID" />
+                    <input type="hidden" name="filter" value="@ViewData["Filter"]" />
+ 
+                    <div class="row">
+                        <div class="col-md-4 account-field">
+                            <label for="reservationDate" class="filter-label">Date</label>
+                            <input type="date" id="reservationDate" name="reservationDate" class="form-control mt-1" value="@ViewData["EditDate"]" />
+                        </div>
+                        <div class="col-md-4 account-field">
+                            <label for="reservationTime" class="filter-label">Time</label>
+                            <input type="time" id="reservationTime" name="reservationTime" class="form-control mt-1" value="@ViewData["EditTime"]" />
+                        </div>
+                        <div class="col-md-4 account-field">
+                            <label for="partySize" class="filter-label">Party size</label>
+                            <select id="partySize" name="partySize" class="form-select mt-1">
+                                @for (int i = 1; i <= ReservationValidator.MaxPartySize; i++)
+                                {
+                                    <option value="@i" selected="@(editRes.PartySize == i)">@i</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+ 
+                    <div class="row">
+                        <div class="col-md-4 account-field">
+                            <label for="contactName" class="filter-label">Name</label>
+                            <input type="text" id="contactName" name="contactName" class="form-control mt-1" maxlength="100" value="@editRes.ContactName" />
+                        </div>
+                        <div class="col-md-4 account-field">
+                            <label for="phone" class="filter-label">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control mt-1" maxlength="20" value="@editRes.Phone" />
+                        </div>
+                        <div class="col-md-4 account-field">
+                            <label for="email" class="filter-label">Email</label>
+                            <input type="text" id="email" name="email" class="form-control mt-1" maxlength="100" value="@editRes.Email" />
+                        </div>
+                    </div>
+ 
+                    <div class="account-field">
+                        <label for="specialRequests" class="filter-label">Special requests (optional)</label>
+                        <textarea id="specialRequests" name="specialRequests" class="form-control mt-1" rows="3">@editRes.SpecialRequests</textarea>
+                    </div>
+ 
+                    <button type="submit" class="btn btn-wtf">Save changes</button>
+                    <a asp-controller="Reservation" asp-action="ManageReservation" asp-route-filter="@ViewData["Filter"]" class="btn btn-outline-light">Cancel</a>
+                </form>
+            </div>
+        }
+ 
+        <div class="results-toolbar d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div>
+                <h2 class="results-count">@ViewData["RestaurantName"]</h2>
+                <span class="results-criteria">@ViewData["ReservationCount"]</span>
+            </div>
+            <form method="get" asp-controller="Reservation" asp-action="ManageReservation" class="respond-filter d-flex align-items-center gap-2">
+                <label for="filter" class="filter-label">Show</label>
+                <select id="filter" name="filter" class="form-select form-select-sm">
+                    <option value="All" selected="@(ViewData["Filter"].ToString() == "All")">All reservations</option>
+                    <option value="Pending" selected="@(ViewData["Filter"].ToString() == "Pending")">Waiting to be confirmed</option>
+                    <option value="Confirmed" selected="@(ViewData["Filter"].ToString() == "Confirmed")">Confirmed</option>
+                </select>
+                <button type="submit" class="btn btn-wtf btn-sm">Show</button>
+            </form>
+        </div>
+ 
+        @if (Model.Rows.Count == 0)
+        {
+            <p class="results-criteria">@ViewData["EmptyText"]</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table align-middle results-grid reservation-grid">
+                    <thead>
+                        <tr class="grid-header">
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Date and time</th>
+                            <th class="text-center">Party</th>
+                            <th>Special requests</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DataRow row in Model.Rows)
+                        {
+                            String status = row["Status"].ToString();
+                            String requests = row["SpecialRequests"].ToString();
+ 
+                            <tr class="grid-row">
+                                <td class="restaurant-name">@row["ContactName"]</td>
+                                <td class="muted-cell">@row["Phone"]</td>
+                                <td class="muted-cell">@row["Email"]</td>
+                                <td>@Convert.ToDateTime(row["ReservationDate"]).ToString("ddd, MMM d, yyyy h:mm tt")</td>
+                                <td class="score">@row["PartySize"]</td>
+                                <td class="muted-cell reservation-requests">@(requests == "" ? "-" : requests)</td>
+                                <td class="@(status == "Confirmed" ? "status-confirmed" : "status-pending")">@status</td>
+                                <td>
+                                    @if (status != "Confirmed")
+                                    {
+                                        <form method="post" asp-controller="Reservation" asp-action="ConfirmReservation">
+                                            <input type="hidden" name="reservationID" value="@row["ReservationID"]" />
+                                            <input type="hidden" name="filter" value="@ViewData["Filter"]" />
+                                            <button type="submit" class="btn-view">Confirm</button>
+                                        </form>
+                                    }
+                                </td>
+                                <td><a asp-controller="Reservation" asp-action="EditReservation" asp-route-id="@row["ReservationID"]" asp-route-filter="@ViewData["Filter"]" class="btn-view">Edit</a></td>
+                                <td><a asp-controller="Reservation" asp-action="ConfirmDeleteReservation" asp-route-id="@row["ReservationID"]" asp-route-filter="@ViewData["Filter"]" class="btn-delete">Delete</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</div>
+ 

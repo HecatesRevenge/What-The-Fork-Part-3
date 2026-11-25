@@ -1,45 +1,56 @@
 ﻿using System;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-namespace WhatTheForkMVC.Classes.Security
+
+namespace WhatTheForkMVC.Classes
 {
     public class EncryptionHelper
     {
-        private Byte[] key = { 166, 229, 229, 158, 163, 41, 249, 102, 5, 56, 252, 26, 48, 59, 30, 2 };
-        private Byte[] vector = { 117, 163, 99, 156, 140, 191, 38, 125, 212, 169, 164, 23, 75, 253, 226, 80 };
+        private Byte[] key;
+
+        public EncryptionHelper()
+        {
+            IConfiguration config = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            key = Convert.FromBase64String(config["Encryption:Key"]);
+        }
 
         public String Encrypt(String plainText)
         {
             if (String.IsNullOrEmpty(plainText))
             {
                 return "";
-
             }
 
             UTF8Encoding encoder = new UTF8Encoding();
             Byte[] textBytes = encoder.GetBytes(plainText);
 
             Aes aesEncryption = Aes.Create();
-            MemoryStream thisMemoryStream = new MemoryStream();
-            CryptoStream thisEncryptionStream = new CryptoStream(thisMemoryStream, aesEncryption.CreateEncryptor(key, vector), CryptoStreamMode.Write);
+            aesEncryption.Key = key;
+            aesEncryption.GenerateIV();
+            Byte[] vector = aesEncryption.IV;
 
-            thisEncryptionStream.Write(textBytes, 0, textBytes.Length);
-            thisEncryptionStream.FlushFinalBlock();
+            MemoryStream myMemoryStream = new MemoryStream();
+            myMemoryStream.Write(vector, 0, vector.Length);
 
-            thisMemoryStream.Position = 0;
-            Byte[] encryptedBytes=new byte[thisMemoryStream.Length];
-            thisMemoryStream.Read(encryptedBytes, 0, encryptedBytes.Length);
+            CryptoStream myEncryptionStream = new CryptoStream(myMemoryStream, aesEncryption.CreateEncryptor(), CryptoStreamMode.Write);
+            myEncryptionStream.Write(textBytes, 0, textBytes.Length);
+            myEncryptionStream.FlushFinalBlock();
 
-            thisEncryptionStream.Close();
-            thisMemoryStream.Close();
+            Byte[] encryptedBytes = myMemoryStream.ToArray();
+
+            myEncryptionStream.Close();
+            myMemoryStream.Close();
 
             return Convert.ToBase64String(encryptedBytes);
-
         }
 
         public String Decrypt(String encryptedText)
         {
-
             if (String.IsNullOrEmpty(encryptedText))
             {
                 return "";
@@ -47,22 +58,31 @@ namespace WhatTheForkMVC.Classes.Security
 
             try
             {
-                Byte[] encryptedBytes = Convert.FromBase64String(encryptedText);
-                UTF8Encoding encoder=new UTF8Encoding();
+                Byte[] allBytes = Convert.FromBase64String(encryptedText);
+                if (allBytes.Length <= 16)
+                {
+                    return encryptedText;
+                }
 
-                Aes aesEncrypt=Aes.Create();
-                MemoryStream thisMemoryStream = new MemoryStream();
-                CryptoStream thisDecryptionStream=new CryptoStream(thisMemoryStream, aesEncrypt.CreateDecryptor(key, vector), CryptoStreamMode.Write);
+                UTF8Encoding encoder = new UTF8Encoding();
 
-                thisDecryptionStream.Write(encryptedBytes, 0, encryptedBytes.Length);
-                thisDecryptionStream.FlushFinalBlock();
+                Aes aesEncryption = Aes.Create();
+                aesEncryption.Key = key;
 
-                thisMemoryStream.Position = 0;
-                Byte[] textBytes = new Byte[thisMemoryStream.Length];
-                thisMemoryStream.Read(textBytes, 0, textBytes.Length);
+                Byte[] vector = new Byte[16];
+                Array.Copy(allBytes, 0, vector, 0, 16);
+                aesEncryption.IV = vector;
 
-                thisDecryptionStream.Close();
-                thisMemoryStream.Close();
+                MemoryStream myMemoryStream = new MemoryStream();
+                CryptoStream myDecryptionStream = new CryptoStream(myMemoryStream, aesEncryption.CreateDecryptor(), CryptoStreamMode.Write);
+
+                myDecryptionStream.Write(allBytes, 16, allBytes.Length - 16);
+                myDecryptionStream.FlushFinalBlock();
+
+                Byte[] textBytes = myMemoryStream.ToArray();
+
+                myDecryptionStream.Close();
+                myMemoryStream.Close();
 
                 return encoder.GetString(textBytes);
             }
@@ -70,8 +90,6 @@ namespace WhatTheForkMVC.Classes.Security
             {
                 return encryptedText;
             }
-
-          
         }
     }
 }

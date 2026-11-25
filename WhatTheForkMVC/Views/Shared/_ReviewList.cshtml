@@ -1,0 +1,86 @@
+﻿@using WhatTheForkMVC.Classes.Reviews;
+@using WhatTheForkMVC.Database
+@using What_The_Fork.Styling.Reviews
+@model List<Review>
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted-light">No reviews for this restaurant yet.</p>
+}
+
+@foreach (Review review in Model)
+{
+    String initials = "";
+    foreach (String part in review.ReviewerName.Split(' '))
+    {
+        if (part.Length > 0)
+        {
+            initials += part.Substring(0, 1).ToUpper();
+        }
+    }
+
+    double overall;
+    if (review.AtmosphereRating == 0)
+    {
+        overall = (review.FoodRating + review.ServiceRating) / 2.0;
+    }
+    else
+    {
+        overall = (review.FoodRating + review.ServiceRating + review.AtmosphereRating) / 3.0;
+    }
+
+    String voteMessage = Context.Session.GetString("ReviewVote" + review.ReviewID);
+
+    <div class="review-card" id="review@(review.ReviewID)">
+        <div class="review-header">
+            <span class="review-avatar">@initials</span>
+            <div>
+                <span class="review-name">@review.ReviewerName</span>
+                @if (review.ReviewerHome != null && review.ReviewerHome != "")
+                {
+                    <span class="review-home">from @review.ReviewerHome</span>
+                }
+                <div class="review-date">
+                    <span>@review.ReviewDate.ToString("MMMM d, yyyy 'at' h:mm tt")</span>
+                    @if (review.VisitDate != DateTime.MinValue)
+                    {
+                        <span class="review-visit">Visited on @review.VisitDate.ToString("MMMM d, yyyy")</span>
+                    }
+                </div>
+            </div>
+            <div class="review-stars">@Html.Raw(ReviewDivs.GetStarsHtml(overall))</div>
+        </div>
+
+        <h3 class="review-title">@review.ReviewTitle</h3>
+        <p class="review-text">@review.ReviewText</p>
+
+        @if (review.HasPhoto)
+        {
+            <img src="data:@review.ReviewPhotoType;base64,@Convert.ToBase64String(review.ReviewPhoto)" class="review-card-photo" alt="Photo from @review.ReviewerName" />
+        }
+
+        <div class="review-scores">
+            Food <span class="review-score">@review.FoodRating</span>
+            | Service <span class="review-score">@review.ServiceRating</span>
+            | Atmosphere <span class="review-score">@(review.AtmosphereRating == 0 ? "-" : review.AtmosphereRating.ToString())</span>
+            | Price <span class="review-score">@RestaurantDB.GetDollarSigns(review.PriceRating)</span>
+        </div>
+
+        <form method="post" asp-controller="Review" asp-action="Vote" class="review-footer">
+            <input type="hidden" name="reviewID" value="@review.ReviewID" />
+            <input type="hidden" name="restaurantID" value="@review.RestaurantID" />
+            <span>Was this review helpful?</span>
+            <button type="submit" name="vote" value="Helpful" class="btn-vote" disabled="@(voteMessage != null)">Helpful (@review.HelpfulCount)</button>
+            <button type="submit" name="vote" value="NotHelpful" class="btn-vote" disabled="@(voteMessage != null)">Not helpful (@review.NotHelpfulCount)</button>
+            <span class="vote-message">@voteMessage</span>
+        </form>
+
+        @if (review.ResponseText != null && review.ResponseText != "")
+        {
+            <div class="review-response">
+                <div class="review-response-heading">Response from the restaurant</div>
+                <p class="review-response-text">@review.ResponseText</p>
+            </div>
+        }
+    </div>
+}

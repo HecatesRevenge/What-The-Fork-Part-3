@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WhatTheForkMVC.Classes;
-using WhatTheForkMVC.Database;
-using WhatTheForkMVC.Classes.Login;
 using System.Data;
+using WhatTheForkMVC.Classes;
 using WhatTheForkMVC.Classes.Dashboard;
+using WhatTheForkMVC.Classes.Login;
+using WhatTheForkMVC.Classes.Restaurant;
+using WhatTheForkMVC.Classes.Reviews;
+using WhatTheForkMVC.Database;
 
 namespace WhatTheForkMVC.Controllers
 {
@@ -12,28 +14,46 @@ namespace WhatTheForkMVC.Controllers
         ReviewDB objReviewDB = new ReviewDB();
         ReservationDB objReservDB = new ReservationDB();
         RestaurantDB objRestaurant = new RestaurantDB();
-         
-         public IActionResult Index()
-         {
-             if (!SessionUser.IsLoggedIn(HttpContext.Session))
-             {
-                 return RedirectToAction("Login", "Account");
-             }
+        SearchSerializer objSerializer = new SearchSerializer();
 
-             UserAccounts objUser = SessionUser.GetUser(HttpContext.Session);
-             List<DashboardCard> lstCards = new List<DashboardCard>();
+        public IActionResult Index()
+        {
+            UserAccounts objUser = SessionUser.GetUser(HttpContext.Session);
+            List<DashboardCard> lstCards = new List<DashboardCard>();
 
-             if (objUser.IsReviewer)
-             {
+            if (objUser == null)
+            {
+                AddVisitorCards(lstCards);
+            }
+            else if (objUser.IsReviewer)
+            {
                 AddReviewerCards(objUser, lstCards);
-             }
-             if (objUser.IsRepresentative)
-             {
+            }
+            else if (objUser.IsRepresentative)
+            {
                 AddRepresentativeCards(objUser, lstCards);
-             }
-             return View(lstCards);
-         }
-        
+            }
+            return View(lstCards);
+        }
+
+        private void AddVisitorCards(List<DashboardCard> lstCards)
+        {
+            ViewData["Eyebrow"] = "Start Here";
+            ViewData["Welcome"] = "Welcome to What the Fork!";
+            ViewData["Instructions"] = "Search restaurants and read reviews without an account. Log in or register to write reviews or manage a restaurant";
+
+            lstCards.Add(new DashboardCard("Explore", "Find Restaurants", "Search by cuisine and location",
+                "Choose one or more cuisines and a city, then compare ratings for food, service and atmosphere.",
+                "~/Restaurant/Search", "Search restaurants"));
+
+            lstCards.Add(new DashboardCard("Members", "Log In", "Already have an account?",
+                "Reviewers can write and manage their reviews. Representatives can manage their restaurant and reservations.",
+                "~/Account/Login", "Log in"));
+
+            lstCards.Add(new DashboardCard("New here", "Register", "It's free",
+                "Create a reviewer account to share your visits, or a representative account to list your restaurant.",
+                "~/Account/Register", "Create an account"));
+        }
 
         private void AddReviewerCards(UserAccounts user, List<DashboardCard> lstCards)
         {
@@ -44,16 +64,8 @@ namespace WhatTheForkMVC.Controllers
 
             try
             {
-                int reviewerID = objReviewDB.GetReviewerID(user.UserID);
-                int reviewCount = 0;
-
-
-
-                if (reviewerID == objReviewDB.GetReviewerID(user.UserID))
-                {
-                    DataSet dsReviews = objReviewDB.GetReviewsByReviewer(reviewerID);
-                    reviewCount = dsReviews.Tables[0].Rows.Count;
-                }
+                ReviewApiClient objReviewApi = new ReviewApiClient(Request);
+                int reviewCount = objReviewApi.GetReviewsForUser(user.UserID).Count;
 
                 if (reviewCount == 1)
                 {
@@ -77,6 +89,29 @@ namespace WhatTheForkMVC.Controllers
             lstCards.Add(new DashboardCard("Share Your Visit", "Write Review", "Food, Service, Atmostpher, Price",
             "Search for restaurants, click on profile, select Write a Review",
             "~/Restaurant/Search", "Search Restaurants to Write a Review"));
+
+            AddLastSearchCard(user, lstCards);
+        }
+
+        private void AddLastSearchCard(UserAccounts user, List<DashboardCard> lstCards)
+        {
+            try
+            {
+                Byte[] searchData = objRestaurant.GetSavedSearch(user.UserID);
+                if (searchData == null)
+                {
+                    return;
+                }
+
+                SearchCriteria objCriteria = objSerializer.Deserialize(searchData);
+
+                lstCards.Add(new DashboardCard("Pick up where you left off", "Your Last Search", objCriteria.Description,
+                    "Saved " + objCriteria.SavedDate.ToString("MMM d, yyyy 'at' h:mm tt") + ". Run it again to see what's new.",
+                    "~/Restaurant/LastSearch", "Run it again"));
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void AddRepresentativeCards(UserAccounts user, List<DashboardCard> lstCards)
@@ -115,14 +150,14 @@ namespace WhatTheForkMVC.Controllers
                             }
                         }
                     }
-                }
 
-                DataSet dsReviews = objReviewDB.GetReviews(restaurantID);
-                foreach (DataRow row in dsReviews.Tables[0].Rows)
-                {
-                    if (row["ResponseText"] == DBNull.Value || row["ResponseText"].ToString().Trim() == "")
+                    DataSet dsReviews = objReviewDB.GetReviews(restaurantID);
+                    foreach (DataRow row in dsReviews.Tables[0].Rows)
                     {
-                        unanswerCount = unanswerCount + 1;
+                        if (row["ResponseText"] == DBNull.Value || row["ResponseText"].ToString().Trim() == "")
+                        {
+                            unanswerCount = unanswerCount + 1;
+                        }
                     }
                 }
             }
@@ -137,33 +172,33 @@ namespace WhatTheForkMVC.Controllers
             {
                 lstCards.Add(new DashboardCard("Get started", "Add Your Restaurant", "No Restaurant",
                     "Add your restaurant's details, hours, social media links and photos.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
 
                 lstCards.Add(new DashboardCard("Bookings", "Reservations", "No Restaurant",
                     "Once a restaurant is listed, diners can book a table and you can confirm reservations here.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
 
                 lstCards.Add(new DashboardCard("Feedback", "Reviews to Respond To", "No Restaurant",
                     "Once your restaurant is listed, you can reply to  reviews.",
-                    "~/Restaurant/Manage", "Add my restaurant"));
+                    "~/Restaurant/ManageReservation", "Add my restaurant"));
                 return;
             }
 
             lstCards.Add(new DashboardCard("Your listing", "My Restaurant", restaurantName,
                "Update your restaurant's details, hours, social links and photos.",
-               "~/Restaurant/Manage", "Edit my restaurant"));
+               "~/Restaurant/ManageReservation", "Edit my restaurant"));
 
-            lstCards.Add(new DashboardCard("Bookings", "Reservations", pendingCount + "Confirmation Waiting",
+            lstCards.Add(new DashboardCard("Bookings", "Reservations", pendingCount + " Confirmation Waiting",
                 upcomingCount + " total upcoming. Customer gets email when you confirm, change, or cancel a reservation.",
-                "~/Reservation/Manage", "Manage reservations"));
+                "~/Reservation/ManageReservation", "Manage reservations"));
             String reviewStat = "";
             if (unanswerCount == 1)
             {
-                reviewStat= "1 review waiting for a response";
+                reviewStat = "1 review waiting for a response";
             }
             else
             {
-                reviewStat = unanswerCount + "reviews waiting for a response";
+                reviewStat = unanswerCount + " reviews waiting for a response";
             }
 
 

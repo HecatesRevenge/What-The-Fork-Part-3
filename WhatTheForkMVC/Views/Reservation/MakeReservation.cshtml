@@ -1,0 +1,123 @@
+﻿@using WhatTheForkMVC.Classes;
+@using WhatTheForkMVC.Classes.Reservation;
+@model Reservation
+@{
+    ViewData["Title"] = "Reserve a Table";
+}
+<div class="search-hero">
+    <div class="container">
+        <p class="eyebrow">Reserve a table</p>
+        
+        <h1>@(ViewData["RestaurantName"] == null ? "Book a table" : ViewData["RestaurantName"])</h1>
+        <p class="lead">Choose a date, time and party size. The restaurant will receive your request and confirm it by email.</p>
+    </div>
+</div>
+
+<div class="container search-main">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+
+            @if (ViewData["MessageTitle"] != null)
+            {
+                <div class="account-card text-center">
+                    <h2 class="filter-title">@ViewData["MessageTitle"]</h2>
+                    <p class="filter-hint">@ViewData["MessageText"]</p>
+                    <a class="btn btn-wtf" href="@Url.Content(ViewData["MessageLink"].ToString())">@ViewData["MessageLinkText"]</a>
+                </div>
+            }
+            else if (ViewData["Success"] != null)
+            {
+                <div class="account-card reservation-summary">
+                    <h2 class="filter-title">Request was sent</h2>
+                    <p class="filter-hint">@ViewData["SuccessText"]</p>
+                    @if (ViewData["EmailNote"] != null)
+                    {
+                        <span class="email-note d-block">@ViewData["EmailNote"]</span>
+                    }
+                    <dl class="reservation-details">
+                        <dt>Date</dt>
+                        <dd>@Model.ReservationDate.ToString("dddd, MMMM d, yyyy")</dd>
+                        <dt>Time</dt>
+                        <dd>@Model.ReservationDate.ToString("h:mm tt")</dd>
+                        <dt>Party size</dt>
+                        <dd>@Model.PartySize</dd>
+                        <dt>Name</dt>
+                        <dd>@Model.ContactName</dd>
+                        <dt>Phone</dt>
+                        <dd>@Model.Phone</dd>
+                        <dt>Email</dt>
+                        <dd>@Model.Email</dd>
+                        <dt>Special requests</dt>
+                        <dd>@(Model.SpecialRequests == "" ? "None" : Model.SpecialRequests)</dd>
+                        <dt>Status</dt>
+                        <dd>Waiting for the restaurant to confirm</dd>
+                    </dl>
+                    <a class="btn btn-wtf" href="@Url.Content("~/Restaurant/Profile/" + Model.RestaurantID)">Back to the restaurant</a>
+                    <a class="btn btn-outline-light" asp-controller="Restaurant" asp-action="Search">Find another restaurant</a>
+                </div>
+            }
+            else
+            {
+                <div class="account-card">
+                    <h2 class="filter-title">Your reservation</h2>
+                    <p class="filter-hint">Fill in every required field unless it says (optional), then click Request reservation.</p>
+
+                    @if (ViewData["Error"] != null)
+                    {
+                        <span class="validation-summary d-block">@Html.Raw(ViewData["Error"])</span>
+                    }
+
+                    <form method="post" asp-controller="Reservation" asp-action="MakeReservation" asp-route-id="@Model.RestaurantID">
+                        <div class="row">
+                            <div class="col-md-6 account-field">
+                                <label for="reservationDate" class="filter-label">Date</label>
+                                <input type="date" id="reservationDate" name="reservationDate" class="form-control mt-1" value="@ViewData["ReservationDate"]" />
+                            </div>
+                            <div class="col-md-6 account-field">
+                                <label for="reservationTime" class="filter-label">Time</label>
+                                <input type="time" id="reservationTime" name="reservationTime" class="form-control mt-1" value="@ViewData["ReservationTime"]" />
+                            </div>
+                        </div>
+
+                        <div class="account-field">
+                            <label for="partySize" class="filter-label">Party size</label>
+                            <select id="partySize" name="partySize" class="form-select mt-1 reservation-party">
+                                @for (int i = 1; i <= ReservationValidator.MaxPartySize; i++)
+                                {
+                                    <option value="@i" selected="@(Model.PartySize == i)">@i</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="account-field">
+                            <label for="contactName" class="filter-label">Name for reservation</label>
+                            <input type="text" id="contactName" name="contactName" class="form-control mt-1" maxlength="100" value="@Model.ContactName" />
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 account-field">
+                                <label for="phone" class="filter-label">Phone</label>
+                                <input type="tel" id="phone" name="phone" class="form-control mt-1" maxlength="20" value="@Model.Phone" />
+                            </div>
+                            <div class="col-md-6 account-field">
+                                <label for="email" class="filter-label">Email</label>
+                                <input type="text" id="email" name="email" class="form-control mt-1" maxlength="100" value="@Model.Email" />
+                            </div>
+                        </div>
+                        <p class="filter-hint">@(ViewData["ContactHint"] == null ? "The restaurant uses these to reach you about your reservation." : ViewData["ContactHint"])</p>
+
+                        <div class="account-field">
+                            <label for="specialRequests" class="filter-label">Special requests (optional)</label>
+                            <textarea id="specialRequests" name="specialRequests" class="form-control mt-1" rows="4">@Model.SpecialRequests</textarea>
+                            <p class="filter-hint mt-1 mb-0">Allergies, a high chair, a birthday... Up to 1000 characters.</p>
+                        </div>
+
+                        <button type="submit" class="btn btn-wtf w-100">Request reservation</button>
+
+                        <p class="account-switch"><a href="@Url.Content("~/Restaurant/Profile/" + Model.RestaurantID)">Cancel</a></p>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[TP_UserAccount] (
     [UserType] VARCHAR(20) NOT NULL,
     [FirstName] VARCHAR(50) NOT NULL,
     [LastName] VARCHAR(50) NOT NULL,
-    [Email] VARCHAR(100) NOT NULL,
+    [Email] VARCHAR(200) NOT NULL,
     [Phone] VARCHAR(20) NULL,
     [DateCreated] DATETIME NOT NULL CONSTRAINT [TP_DF_UserAccount_DateCreated] DEFAULT (getdate()),
     CONSTRAINT [TP_PK_UserAccount] PRIMARY KEY CLUSTERED ([UserID]),
@@ -200,4 +200,15 @@ GO
 ALTER TABLE [dbo].[TP_Review] ADD CONSTRAINT [TP_FK_Review_Reviewer] FOREIGN KEY ([ReviewerID]) REFERENCES [dbo].[TP_Reviewer] ([ReviewerID]);
 GO
 ALTER TABLE [dbo].[TP_Reviewer] ADD CONSTRAINT [TP_FK_Reviewer_UserAccount] FOREIGN KEY ([UserID]) REFERENCES [dbo].[TP_UserAccount] ([UserID]);
+GO
+
+CREATE TABLE [dbo].[TP_SavedSearch] (
+    [UserID] INT NOT NULL,
+    [SearchData] VARBINARY(MAX) NOT NULL,
+    [SavedDate] DATETIME NOT NULL,
+    CONSTRAINT [TP_PK_SavedSearch] PRIMARY KEY CLUSTERED ([UserID])
+);
+GO
+
+ALTER TABLE [dbo].[TP_SavedSearch] ADD CONSTRAINT [TP_FK_SavedSearch_UserAccount] FOREIGN KEY ([UserID]) REFERENCES [dbo].[TP_UserAccount] ([UserID]);
 GO
