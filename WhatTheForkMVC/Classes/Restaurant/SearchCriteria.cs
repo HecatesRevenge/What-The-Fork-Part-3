@@ -11,6 +11,7 @@ namespace WhatTheForkMVC.Classes.Restaurant
         private String cuisineList = "";
         private String city = "";
         private String state = "";
+        private int maxPrice = 0;
         private String description = "";
         private DateTime savedDate;
 
@@ -47,6 +48,12 @@ namespace WhatTheForkMVC.Classes.Restaurant
         public bool IsAllLocations
         {
             get { return city == "" || state == ""; }
+        }
+
+        public int MaxPrice
+        {
+            get { return maxPrice; }
+            set { maxPrice = value; }
         }
 
     }
