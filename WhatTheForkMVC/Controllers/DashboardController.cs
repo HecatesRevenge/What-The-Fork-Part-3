@@ -13,7 +13,7 @@ namespace WhatTheForkMVC.Controllers
     {
         ReviewDB objReviewDB = new ReviewDB();
         ReservationDB objReservDB = new ReservationDB();
-        RestaurantDB objRestaurant = new RestaurantDB();
+        AccountDB objAccountDB = new AccountDB();
         SearchSerializer objSerializer = new SearchSerializer();
 
         public IActionResult Index()
@@ -97,7 +97,7 @@ namespace WhatTheForkMVC.Controllers
         {
             try
             {
-                Byte[] searchData = objRestaurant.GetSavedSearch(user.UserID);
+                Byte[] searchData = objAccountDB.GetSavedSearch(user.UserID);
                 if (searchData == null)
                 {
                     return;
@@ -128,7 +128,7 @@ namespace WhatTheForkMVC.Controllers
 
             try
             {
-                DataSet dsRestaurant = objRestaurant.GetResturantByRep(user.UserID);
+                DataSet dsRestaurant = objReservDB.GetRestaurantByRep(user.UserID);
 
                 if (dsRestaurant.Tables[0].Rows.Count > 0)
                 {

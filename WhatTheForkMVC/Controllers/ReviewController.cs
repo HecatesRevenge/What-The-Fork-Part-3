@@ -11,7 +11,6 @@ namespace WhatTheForkMVC.Controllers
     public class ReviewController : Controller
     {
         ReviewDB objReviewDB = new ReviewDB();
-        RestaurantDB objRestaurantDB = new RestaurantDB();
         ReviewValidator objValidator = new ReviewValidator();
 
         public IActionResult MyReviews()
@@ -271,7 +270,7 @@ namespace WhatTheForkMVC.Controllers
 
         private IActionResult LoadRestaurant(int restaurantID)
         {
-            DataSet dsRestaurant = objRestaurantDB.GetRestaurant(restaurantID);
+            DataSet dsRestaurant = objReviewDB.GetRestaurant(restaurantID);
             if (dsRestaurant.Tables[0].Rows.Count == 0)
             {
                 return ShowReviewMessage("Restaurant not found",
@@ -297,7 +296,7 @@ namespace WhatTheForkMVC.Controllers
                     "~/Review/MyReviews", "Back to my reviews");
             }
 
-            DataSet dsRestaurant = objRestaurantDB.GetRestaurant(objReview.RestaurantID);
+            DataSet dsRestaurant = objReviewDB.GetRestaurant(objReview.RestaurantID);
             if (dsRestaurant.Tables[0].Rows.Count > 0)
             {
                 objReview.RestaurantName = dsRestaurant.Tables[0].Rows[0]["RestaurantName"].ToString();
