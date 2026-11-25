@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Status"] = "";
+}
+<div>
+    @*
+    *@
+    <div class="account-field">
+        <label Ifor="lbltitle" class="filter-label">Insert Title here</label>
+        <input type="text" id="title" name="title" class="form-control mt-1" />
+    </div>
+    <div class="account-field">
+        <label Ifor="Restid" class="filter-label">Input the ID of the restaurant that the image is for here</label>
+        <input type="text" id="restid" name="restid" class="form-control mt-1" />
+    </div>
+    <div class="account-field">
+        <label Ifor="caption" class="filter-label">Caption the image</label>
+        <input type="text" id="caption" name="caption" class="form-control mt-1" />
+    </div>
+    <div class="account-field">
+        <label Ifor="photoid" class="filter-label">Insert Photo ID</label>
+        <input type="text" id="photoid" name="photoid" class="form-control mt-1" />
+    </div>
+</div>
+<div>
+    <label Ifor="question" class="filter-label">@ViewData["Status"]</label>
+    <input type="file" class="form-control" name="file" />
+    <p class="account-switch"><a asp-controller="GetInfoController" asp-action="Submit">Submit your answer</a></p>
+
+</div>
