@@ -1,0 +1,36 @@
+﻿@using WhatTheForkMVC.Classes.Chatbot
+@if (SessionUser.IsLoggedIn(Context.Session))
+{
+    List<ChatTurn> turns = ChatHistory.Load(Context.Session);
+
+    <button id="chatToggle" class="btn btn-wtf chat-toggle" type="button">Ask for recommendations</button>
+
+    <div id="chatWindow" class="chat-window chat-hidden">
+        <div class="chat-header">
+            <span>Recommendations</span>
+            <button id="chatClear" class="btn btn-sm btn-outline-light" type="button">New chat</button>
+        </div>
+
+        <div id="chatMessages" class="chat-messages">
+            @if (turns.Count == 0)
+            {
+                <div class="chat-bubble assistant">Hi! Struggling to decide what you're in the mood for? I'll suggest a few places.</div>
+            }
+            @foreach (ChatTurn turn in turns)
+            {
+                <div class="chat-bubble @turn.Role">@turn.Text</div>
+            }
+        </div>
+
+        <p class="chat-privacy">Your reviews and searches are sent to an AI service to make suggestions.</p>
+
+
+        <div class="chat-input-row">
+            <input id="chatInput" class="form-control" type="text" maxlength="500" placeholder="Like Thai, but cheaper..." />
+            <button id="chatSend" class="btn btn-wtf btn-sm" type="button">Send</button>
+        </div>
+        <input id="chatFilters" type="hidden" value="@ViewData["Criteria"]" />
+    </div>
+
+    <script src="~/js/chat.js" asp-append-version="true"></script>
+}

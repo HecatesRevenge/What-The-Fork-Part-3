@@ -5,14 +5,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;
 using WhatTheForkMVC.Classes;
-
+using WhatTheForkMVC.Chatbot;
 
 using WhatTheForkMVC.Classes.Restaurant;
 using WhatTheForkMVC.Classes.Reviews;
 using WhatTheForkMVC.Database;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace WhatTheForkMVC.Views.Account
+namespace WhatTheForkMVC.Views.Chatbot
 {
     public class RecommandationTools
     {
@@ -49,7 +49,7 @@ namespace WhatTheForkMVC.Views.Account
             StringBuilder sb = new StringBuilder();
             foreach (Review review in reviews)
             {
-                sb.AppendLine("RestaurantID " + review.RestaurantID + ": " + review.RestaurantName
+                sb.AppendLine(review.RestaurantName + " (#" + review.RestaurantID + ")"
                     + " | \"" + review.ReviewTitle + "\""
                     + " | Food " + review.FoodRating + ", Service " + review.ServiceRating
                     + ", Atmosphere " + review.AtmosphereRating + ", Price " + review.PriceRating
@@ -75,7 +75,7 @@ namespace WhatTheForkMVC.Views.Account
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 List<String> names = new List<String>();
-                foreach (String id in row["CuisineIDs"].ToString().Split(','))
+                foreach (String id in row["CuisineList"].ToString().Split(','))
                 {
                     if (cuisineName.ContainsKey(id))
                     {
@@ -124,8 +124,61 @@ namespace WhatTheForkMVC.Views.Account
             return sb.ToString();
         }
 
-        [Description("Searches restaurants. Returns up to 10 results, best rated first.")]
-       
+        [Description(ToolDescriptions.SearchRestaurants)]
+        public String SearchRestaurants([Description(ToolDescriptions.CuisineIDs)] String cuisineIDs,
+            [Description(ToolDescriptions.City)] String city,
+            [Description(ToolDescriptions.State)] String state,
+            [Description(ToolDescriptions.MaxPrice)] int maxPrice)
+        {
+            SearchCriteria criteria = new SearchCriteria();
+            if (cuisineIDs == null || cuisineIDs == "")
+            {
+                cuisineIDs=String.Join(",", GetCuisineNames().Keys);
+            }
+            if (city == null)
+            {
+                city = "";
+            }
+            if (state == null)
+            {
+                state = "";
+            }
+
+            criteria.CuisineList = cuisineIDs;
+            criteria.City = city;
+            criteria.State = state;
+            criteria.MaxPrice = maxPrice;
+
+            RestaurantDB objRestaurant = new RestaurantDB();
+
+            DataTable results=objRestaurant.SearchRestraurants(criteria).Tables[0];
+            if (results.Rows.Count == 0)
+            {
+                return "No restaurants matched";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            int count = 0;
+            foreach (DataRow row in results.Rows)
+            {
+                if (count == 10)
+                {
+                    break;
+                }
+
+                String rating = "no ratings yet";
+                if (row["OverallRating"] != DBNull.Value)
+                {
+                    rating = Convert.ToDouble(row["OverallRating"]).ToString("0.0") + " of 5";
+                }
+
+                sb.AppendLine(row["RestaurantName"] + " (#" + row["RestaurantID"] + ")"
+                    + " | " + row["CuisineName"] + " | " + row["Location"] + " | " + row["PriceLevel"]
+                    + " | " + rating + " from " + row["ReviewCount"] + " reviews");
+                count++;
+            }
+            return sb.ToString();
+        }
 
         private Dictionary<String, String> GetCuisineNames()
         {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WhatTheForkMVC.Classes
+namespace WhatTheForkMVC.Chatbot
 {
     public class ToolDescriptions
     {
